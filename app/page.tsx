@@ -2,12 +2,13 @@
 
 import React, { useState, useEffect } from "react";
 
-import data from "./gatecsedm.json" assert { type: "json" };
+import data from "../data/extracted_data_dm.json" assert { type: "json" };
 
 import VideoAccordion from "@/components/VideoAccordion";
 import {
   StudyDaysCombobox,
-  StudyTimeCombobox,
+  StudyTimeHourCombobox,
+  StudyTimeMinuteCombobox,
 } from "@/components/OptionCombobox";
 import { Button } from "@/components/ui/button";
 
@@ -15,26 +16,38 @@ export default function Home() {
   const totalVideos = data.length;
 
   const [studyDaysOption, setDaysOption] = useState(5);
-  const [studyTimeOption, setStudyTimeOption] = useState(4);
+  const [studyTimeOption, setStudyTimeOption] = useState({
+    hours: 4,
+    minutes: 0,
+  });
   const [currentPage, setCurrentPage] = useState(1);
   const [checkboxStatus, setCheckboxStatus] = useState<Record<string, boolean>>(
     {}
   );
   const daysPerPage = studyDaysOption;
-  const studyTimePerDay = 3600 * studyTimeOption;
+  const studyTimePerDay =
+    3600 * studyTimeOption.hours + 60 * studyTimeOption.minutes;
 
   useEffect(() => {
     const savedDaysOption = localStorage.getItem("studyDaysOption");
     const savedCheckboxStatus = localStorage.getItem("checkboxStatus");
-    const savedStudyTimeOption = localStorage.getItem("studyTimeOption");
+    const savedStudyTimeHourOption = localStorage.getItem(
+      "savedStudyTimeHourOption"
+    );
+    const savedStudyTimeMinuteOption = localStorage.getItem(
+      "studyTimeMinuteOption"
+    );
     if (savedDaysOption) {
       setDaysOption(parseInt(savedDaysOption));
     }
     if (savedCheckboxStatus) {
       setCheckboxStatus(JSON.parse(savedCheckboxStatus));
     }
-    if (savedStudyTimeOption) {
-      setStudyTimeOption(parseInt(savedStudyTimeOption));
+    if (savedStudyTimeHourOption && savedStudyTimeMinuteOption) {
+      setStudyTimeOption({
+        hours: parseInt(savedStudyTimeHourOption),
+        minutes: parseInt(savedStudyTimeMinuteOption),
+      });
     }
   }, []);
 
@@ -49,7 +62,14 @@ export default function Home() {
 
   useEffect(() => {
     setCurrentPage(1);
-    localStorage.setItem("studyTimeOption", studyTimeOption.toString());
+    localStorage.setItem(
+      "savedStudyTimeHourOption",
+      studyTimeOption.hours.toString()
+    );
+    localStorage.setItem(
+      "studyTimeMinuteOption",
+      studyTimeOption.minutes.toString()
+    );
   }, [studyTimeOption]);
 
   const groupedVideos: Video[][] = [];
@@ -88,8 +108,11 @@ export default function Home() {
     setCurrentPage(page);
   };
 
-  const handleStudyTimeOption = (option: number) => {
-    setStudyTimeOption(option);
+  const handleStudyTimeOption = (hours: number, minutes: number) => {
+    setStudyTimeOption({
+      hours: hours,
+      minutes: minutes,
+    });
   };
 
   return (
@@ -98,13 +121,13 @@ export default function Home() {
       <p className="text-lg mb-4">Total Number of Days: {totalDays}</p>
 
       <div className="flex md:flex-row flex-col justify-center gap-4 mt-4 items-center">
-        <StudyTimeCombobox
+        <StudyTimeHourCombobox
           studyTimeOption={studyTimeOption}
           handleStudyTimeOption={handleStudyTimeOption}
         />
-        <StudyDaysCombobox
-          studyDaysOption={studyDaysOption}
-          handleStudyDaysOption={handleStudyDaysOption}
+        <StudyTimeMinuteCombobox
+          studyTimeOption={studyTimeOption}
+          handleStudyTimeOption={handleStudyTimeOption}
         />
       </div>
 
@@ -119,38 +142,44 @@ export default function Home() {
         />
       ))}
 
-      <div className="flex justify-center mt-4 text-center">
-        <Button
-          className="mx-1 px-3 py-1 rounded bg-gray-200 text-gray-800 hover:bg-gray-300"
-          disabled={currentPage === 1}
-          onClick={() => handlePageChange(1)}
-        >
-          First
-        </Button>
-        <Button
-          className="mx-1 px-3 py-1 rounded bg-gray-200 text-gray-800 hover:bg-gray-300"
-          disabled={currentPage === 1}
-          onClick={() => handlePageChange(currentPage - 1)}
-        >
-          Prev
-        </Button>
-        <Button className="mx-1 px-3 py-1 rounded bg-blue-500 text-white hover:bg-blue-500">
-          {`Week ${currentPage}`}
-        </Button>
-        <Button
-          className="mx-1 px-3 py-1 rounded bg-gray-200 text-gray-800 hover:bg-gray-300"
-          disabled={currentPage === totalPages}
-          onClick={() => handlePageChange(currentPage + 1)}
-        >
-          Next
-        </Button>
-        <Button
-          className="mx-1 px-3 py-1 rounded bg-gray-200 text-gray-800 hover:bg-gray-300"
-          disabled={currentPage === totalPages}
-          onClick={() => handlePageChange(totalPages)}
-        >
-          Last
-        </Button>
+      <div className="flex md:flex-row flex-col justify-between gap-4 mt-4 items-center">
+        <StudyDaysCombobox
+          studyDaysOption={studyDaysOption}
+          handleStudyDaysOption={handleStudyDaysOption}
+        />
+        <div className="flex justify-center text-center">
+          <Button
+            className="mx-1 px-3 py-1 rounded bg-gray-200 text-gray-800 hover:bg-gray-300"
+            disabled={currentPage === 1}
+            onClick={() => handlePageChange(1)}
+          >
+            First
+          </Button>
+          <Button
+            className="mx-1 px-3 py-1 rounded bg-gray-200 text-gray-800 hover:bg-gray-300"
+            disabled={currentPage === 1}
+            onClick={() => handlePageChange(currentPage - 1)}
+          >
+            Prev
+          </Button>
+          <Button className="mx-1 px-3 py-1 rounded bg-blue-500 text-white hover:bg-blue-500">
+            {`Week ${currentPage}`}
+          </Button>
+          <Button
+            className="mx-1 px-3 py-1 rounded bg-gray-200 text-gray-800 hover:bg-gray-300"
+            disabled={currentPage === totalPages}
+            onClick={() => handlePageChange(currentPage + 1)}
+          >
+            Next
+          </Button>
+          <Button
+            className="mx-1 px-3 py-1 rounded bg-gray-200 text-gray-800 hover:bg-gray-300"
+            disabled={currentPage === totalPages}
+            onClick={() => handlePageChange(totalPages)}
+          >
+            Last
+          </Button>
+        </div>
       </div>
     </div>
   );

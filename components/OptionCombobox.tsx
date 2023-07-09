@@ -17,13 +17,14 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { ScrollArea } from "./ui/scroll-area";
 
-export function StudyTimeCombobox({
+export function StudyTimeHourCombobox({
   studyTimeOption,
   handleStudyTimeOption,
 }: {
-  studyTimeOption: number;
-  handleStudyTimeOption: (value: number) => void;
+  studyTimeOption: { hours: number; minutes: number };
+  handleStudyTimeOption: (hours: number, minutes: number) => void;
 }) {
   const [open, setOpen] = React.useState(false);
 
@@ -36,7 +37,7 @@ export function StudyTimeCombobox({
           aria-expanded={open}
           className="w-[200px] justify-between"
         >
-          {studyTimeOption} Hours
+          {studyTimeOption.hours} Hours
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -45,23 +46,88 @@ export function StudyTimeCombobox({
           <CommandInput placeholder="Search Time..." />
           <CommandEmpty>No time found.</CommandEmpty>
           <CommandGroup>
-            {[2, 4, 8].map((option) => (
-              <CommandItem
-                key={option}
-                onSelect={() => {
-                  handleStudyTimeOption(option);
-                  // setOpen(false);
-                }}
-              >
-                <Check
-                  className={cn(
-                    "mr-2 h-4 w-4",
-                    studyTimeOption === option ? "opacity-100" : "opacity-0"
-                  )}
-                />
-                {option} Hours
-              </CommandItem>
-            ))}
+            <ScrollArea className="h-36 w-48">
+              {Array.from({ length: 16 }, (_, index) => {
+                const option = index + 1;
+                return (
+                  <CommandItem
+                    key={option}
+                    onSelect={() => {
+                      handleStudyTimeOption(option, studyTimeOption.minutes);
+                      // setOpen(false);
+                    }}
+                  >
+                    <Check
+                      className={cn(
+                        "mr-2 h-4 w-4",
+                        studyTimeOption.hours === option
+                          ? "opacity-100"
+                          : "opacity-0"
+                      )}
+                    />
+                    {option} Hours
+                  </CommandItem>
+                );
+              })}
+            </ScrollArea>
+          </CommandGroup>
+        </Command>
+      </PopoverContent>
+    </Popover>
+  );
+}
+
+export function StudyTimeMinuteCombobox({
+  studyTimeOption,
+  handleStudyTimeOption,
+}: {
+  studyTimeOption: { hours: number; minutes: number };
+  handleStudyTimeOption: (hours: number, minutes: number) => void;
+}) {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <Button
+          variant="outline"
+          role="combobox"
+          aria-expanded={open}
+          className="w-[200px] justify-between"
+        >
+          {studyTimeOption.minutes} Minutes
+          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-[200px] p-0">
+        <Command>
+          <CommandInput placeholder="Search Time..." />
+          <CommandEmpty>No time found.</CommandEmpty>
+          <CommandGroup>
+            <ScrollArea className="h-36 w-48">
+              {Array.from({ length: 60 }, (_, index) => {
+                const option = index;
+                return (
+                  <CommandItem
+                    key={option}
+                    onSelect={() => {
+                      handleStudyTimeOption(studyTimeOption.hours, option);
+                      // setOpen(false);
+                    }}
+                  >
+                    <Check
+                      className={cn(
+                        "mr-2 h-4 w-4",
+                        studyTimeOption.minutes === option
+                          ? "opacity-100"
+                          : "opacity-0"
+                      )}
+                    />
+                    {option} Minutes
+                  </CommandItem>
+                );
+              })}
+            </ScrollArea>
           </CommandGroup>
         </Command>
       </PopoverContent>
@@ -87,7 +153,7 @@ export function StudyDaysCombobox({
           aria-expanded={open}
           className="w-[200px] justify-between"
         >
-          {studyDaysOption} Days
+          {studyDaysOption} / page
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -110,7 +176,7 @@ export function StudyDaysCombobox({
                     studyDaysOption === option ? "opacity-100" : "opacity-0"
                   )}
                 />
-                {option} Days
+                {option} / page
               </CommandItem>
             ))}
           </CommandGroup>
