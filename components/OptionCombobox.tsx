@@ -159,15 +159,13 @@ export function StudyDaysCombobox({
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
         <Command>
-          <CommandInput placeholder="Search Days..." />
-          <CommandEmpty>No days found.</CommandEmpty>
           <CommandGroup>
             {[3, 5, 7].map((option) => (
               <CommandItem
                 key={option}
                 onSelect={() => {
                   handleStudyDaysOption(option);
-                  // setOpen(false);
+                  setOpen(false);
                 }}
               >
                 <Check

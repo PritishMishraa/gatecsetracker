@@ -163,7 +163,7 @@ export default function Home() {
             Prev
           </Button>
           <Button className="mx-1 px-3 py-1 rounded bg-blue-500 text-white hover:bg-blue-500">
-            {`Week ${currentPage}`}
+            {currentPage}
           </Button>
           <Button
             className="mx-1 px-3 py-1 rounded bg-gray-200 text-gray-800 hover:bg-gray-300"
