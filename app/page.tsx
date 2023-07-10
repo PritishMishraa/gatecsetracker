@@ -12,6 +12,7 @@ const Home = () => {
         {subjects.map(
           (subject: { subjectCode: string; subjectName: string }) => (
             <SubjectCard
+              key={subject.subjectCode}
               subjectCode={subject.subjectCode}
               subjectName={subject.subjectName}
             />
