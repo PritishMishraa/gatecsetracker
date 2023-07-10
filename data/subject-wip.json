@@ -1,0 +1,30 @@
+[
+  {
+    "subjectName": "Data Structure",
+    "subjectCode": "ds"
+  },
+  {
+    "subjectName": "Algorithm",
+    "subjectCode": "algo"
+  },
+  {
+    "subjectName": "Operating System",
+    "subjectCode": "os"
+  },
+  {
+    "subjectName": "Computer Network",
+    "subjectCode": "cn"
+  },
+  {
+    "subjectName": "Database Management System",
+    "subjectCode": "dbms"
+  },
+  {
+    "subjectName": "Computer Organization",
+    "subjectCode": "co"
+  },
+  {
+    "subjectName": "Compiler Design",
+    "subjectCode": "cd"
+  }
+]
