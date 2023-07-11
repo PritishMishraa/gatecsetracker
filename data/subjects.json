@@ -6,5 +6,9 @@
   {
     "subjectName": "Theory of Computation",
     "subjectCode": "toc"
+  },
+  {
+    "subjectName": "Computer Network",
+    "subjectCode": "cn"
   }
 ]
