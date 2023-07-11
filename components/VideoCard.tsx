@@ -46,7 +46,7 @@ export default function VideoCard({
       }`}
     >
       <div className="flex w-full items-center justify-between">
-        <a href={video.videoLink}>
+        <a href={video.videoLink} target="_blank" rel="noopener noreferrer">
           <img
             src={video.thumbnailUrl}
             alt={video.videoTitle}
@@ -55,6 +55,8 @@ export default function VideoCard({
         </a>
         <a
           href={video.videoLink}
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-md font-medium flex-grow text-black truncate hover:underline ml-2"
         >
           {capitalizeFirstLetter(video.videoTitle)}
