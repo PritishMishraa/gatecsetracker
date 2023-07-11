@@ -10,5 +10,17 @@
   {
     "subjectName": "Computer Network",
     "subjectCode": "cn"
+  },
+  {
+    "subjectName": "Database Management System",
+    "subjectCode": "dbms"
+  },
+  {
+    "subjectName": "C Programming",
+    "subjectCode": "cp"
+  },
+  {
+    "subjectName": "Digital Logic",
+    "subjectCode": "dl"
   }
 ]
