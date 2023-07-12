@@ -22,5 +22,33 @@
   {
     "subjectName": "Digital Logic",
     "subjectCode": "dl"
+  },
+  {
+    "subjectName": "Operating System",
+    "subjectCode": "os"
+  },
+  {
+    "subjectName": "Computer Organization & Architecture",
+    "subjectCode": "coa"
+  },
+  {
+    "subjectName": "Data Structure",
+    "subjectCode": "ds"
+  },
+  {
+    "subjectName": "Aptitude",
+    "subjectCode": "a"
+  },
+  {
+    "subjectName": "Engineering Mathematics",
+    "subjectCode": "em"
+  },
+  {
+    "subjectName": "Compiler Design",
+    "subjectCode": "cd"
+  },
+  {
+    "subjectName": "Algorithms",
+    "subjectCode": "algo"
   }
 ]
