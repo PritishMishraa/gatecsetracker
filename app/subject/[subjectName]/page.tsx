@@ -1,5 +1,6 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
 
 import VideoAccordion from "@/components/VideoAccordion";
@@ -10,17 +11,12 @@ import {
 } from "@/components/OptionCombobox";
 import { Button } from "@/components/ui/button";
 
-function generateSubjectCode(subjectName: string) {
-  const subject = decodeURIComponent(subjectName);
-  const subjectCode = subject
-    .split(" ")
-    .map((word) => word[0].toLowerCase())
-    .join("");
-  return { subjectCode, subject };
-}
-
 export default function Home({ params }: { params: { subjectName: string } }) {
-  const { subjectCode, subject } = generateSubjectCode(params.subjectName);
+  const searchParams = useSearchParams();
+
+  const subject = decodeURIComponent(params.subjectName);
+  const subjectCode = searchParams.get("subjectCode");
+
   const data = require("../../../data/" + subjectCode + ".json");
   const totalVideos = data.length;
 
