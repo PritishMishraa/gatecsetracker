@@ -1,24 +1,20 @@
-import SubjectCard from "@/components/SubjectCard";
+import Announcment from "@/components/Announcment";
+import Footer from "@/components/Footer";
+import WelcomeBox from "@/components/WelcomeBox";
+import Meteors from "@/components/Metor";
 
 const Home = () => {
-  const subjects = require("../data/subjects.json");
-
   return (
-    <div className="max-w-2xl mx-auto mb-20 p-4 md:p-0">
-      <h1 className="text-4xl md:text-6xl font-bold mt-10 mb-4">
-        GATE Subjects
-      </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-12">
-        {subjects.map(
-          (subject: { subjectCode: string; subjectName: string }) => (
-            <SubjectCard
-              key={subject.subjectCode}
-              subjectCode={subject.subjectCode}
-              subjectName={subject.subjectName}
-            />
-          )
-        )}
+    <div className="flex min-h-screen flex-col">
+      <Announcment />
+      <div className="container flex-1 flex flex-col items-center justify-center mt-6 md:mt-10 w-full">
+        <WelcomeBox />
+        <Meteors />
       </div>
+
+      {/* Footer */}
+      <div className="h-px bg-secondary w-full"></div>
+      <Footer />
     </div>
   );
 };

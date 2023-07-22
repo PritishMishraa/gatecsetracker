@@ -13,9 +13,9 @@ const SubjectCard = ({ subjectCode, subjectName }: TSubjectCard) => {
       href={{ pathname: `/subject/${subjectName}`, query: { subjectCode } }}
       className="group relative block h-64 mx-2 md:mx-0"
     >
-      <span className="absolute inset-0 border-2 border-dashed border-black"></span>
+      <span className="absolute inset-0 border-2 border-dashed border-primary"></span>
 
-      <div className="relative flex h-full transform items-end border-2 border-black bg-white transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2">
+      <div className="relative flex h-full transform items-end border-2 border-primary bg-primary transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2 text-black">
         <div className="p-4 !pt-0 transition-opacity group-hover:absolute group-hover:opacity-0 sm:p-6 lg:p-8">
           <FunctionSquare size={48} />
 

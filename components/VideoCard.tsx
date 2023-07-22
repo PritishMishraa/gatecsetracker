@@ -41,8 +41,8 @@ export default function VideoCard({
 
   return (
     <div
-      className={`flex border border-gray-200 rounded-lg p-4 ${
-        isChecked ? "bg-green-200" : ""
+      className={`flex border rounded-lg p-4 ${
+        isChecked ? "bg-green-400/60" : ""
       }`}
     >
       <div className="flex w-full items-center justify-between">
@@ -57,14 +57,12 @@ export default function VideoCard({
           href={video.videoLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-md font-medium flex-grow text-black truncate hover:underline ml-2"
+          className="text-md font-medium flex-grow truncate hover:underline ml-2"
         >
           {capitalizeFirstLetter(video.videoTitle)}
         </a>
         <div className="flex items-center gap-2 ml-1">
-          <p className="text-md text-muted-foreground">
-            {formatTime(video.videoTime)}
-          </p>
+          <p className="text-md text-white/60">{formatTime(video.videoTime)}</p>
           <Checkbox
             checked={isChecked}
             onCheckedChange={() => handleCheckboxChange(video.index)}
