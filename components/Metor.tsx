@@ -26,7 +26,7 @@ const Meteors = () => {
   ];
 
   return (
-    <div className="border rounded-3xl h-96 w-full relative flex justify-center items-center text-center bg-background overflow-hidden my-12">
+    <div className="border rounded-3xl h-96 w-full relative flex justify-center items-center text-center bg-primary-foreground overflow-hidden">
       {meteorsData.map((meteor, index) => (
         <span
           key={index}

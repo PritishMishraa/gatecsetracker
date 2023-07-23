@@ -1,26 +1,22 @@
 import React from "react";
-import { Button } from "./ui/button";
 import { Balancer } from "react-wrap-balancer";
-import Link from "next/link";
+import InfiniteMarquee from "./InfiniteMarquee";
 
-const WelcomeBox = () => {
+const SubjectBox = () => {
   return (
-    <div className="relative isolate overflow-hidden bg-primary-foreground border px-6 py-24 text-center rounded-3xl sm:px-16 w-full my-auto h-[500px]">
-      <Balancer>
+    <div className="relative isolate overflow-hidden bg-primary-foreground border px-6 text-center rounded-3xl sm:px-16 w-full my-auto flex h-96">
+      <div className="hidden md:flex md:flex-col my-auto">
         <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
-          Welcome to GATE CSE Tracker
+          Tracking
         </h2>
-      </Balancer>
-      <p>
-        <Balancer className="mx-auto mt-6 max-w-xl text-lg leading-8 ">
-          GATE CSE Tracker is a platform to help you track your progress and
-          achieve success in the GATE CSE Exam.
-        </Balancer>
-      </p>
-      <div className="mt-10 flex items-center justify-center gap-x-6">
-        <Link href="/subject">
-          <Button className="rounded-3xl">Get Started</Button>
-        </Link>
+        <p>
+          <Balancer className="mx-auto max-w-xl text-lg leading-8 text-muted-foreground">
+            All your Subjects in one place
+          </Balancer>
+        </p>
+      </div>
+      <div className="flex flex-col gap-y-6 ml-auto">
+        <InfiniteMarquee />
       </div>
       <svg
         viewBox="0 0 1024 1024"
@@ -45,4 +41,4 @@ const WelcomeBox = () => {
   );
 };
 
-export default WelcomeBox;
+export default SubjectBox;
