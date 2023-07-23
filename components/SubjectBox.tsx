@@ -4,7 +4,7 @@ import InfiniteMarquee from "./InfiniteMarquee";
 
 const SubjectBox = () => {
   return (
-    <div className="relative isolate overflow-hidden bg-primary-foreground border px-6 text-center rounded-3xl sm:px-16 w-full my-auto flex h-96">
+    <div className="relative isolate overflow-hidden bg-primary-foreground border px-6 text-center rounded-3xl sm:px-16 w-full my-auto flex h-96 justify-around">
       <div className="hidden md:flex md:flex-col my-auto">
         <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
           Tracking
@@ -15,7 +15,7 @@ const SubjectBox = () => {
           </Balancer>
         </p>
       </div>
-      <div className="flex flex-col gap-y-6 ml-auto">
+      <div className="flex flex-col">
         <InfiniteMarquee />
       </div>
       <svg
