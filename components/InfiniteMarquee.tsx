@@ -23,14 +23,14 @@ const InfiniteMarquee = () => {
           "linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 20%, rgb(0, 0, 0) 80%, rgba(0, 0, 0, 0) 100%)",
       }}
     >
-      <div className="animate-marquee">
+      <div className="animate-marquee max-w-[8rem]">
         {subjects.map((subject, index) => (
           <div key={index} className="py-2 font-semibold">
             {subject}
           </div>
         ))}
       </div>
-      <div className="animate-marquee-reverse absolute top-0">
+      <div className="animate-marquee-reverse absolute top-0 max-w-[8rem]">
         {subjects.map((subject, index) => (
           <div key={index} className="py-2 font-semibold">
             {subject}
