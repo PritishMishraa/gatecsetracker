@@ -33,7 +33,7 @@ const Request = () => {
   }, []);
 
   return (
-    <div className="h-screen w-screen flex flex-col justify-center items-center text-center mx-auto">
+    <div className="h-screen w-screen flex flex-col justify-center items-center text-left px-8">
       <Balancer>
         {timeRemaining && (
           <h1 className="text-9xl font-bold">
