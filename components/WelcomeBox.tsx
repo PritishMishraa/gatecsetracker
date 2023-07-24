@@ -14,7 +14,7 @@ const WelcomeBox = () => {
       <p>
         <Balancer className="mx-auto mt-6 max-w-xl text-lg leading-8 ">
           GATE CSE Tracker is a platform to help you track your progress and
-          achieve success in the GATE CSE Exam.
+          achieve success in the GATE CSE Exam
         </Balancer>
       </p>
       <div className="mt-10 flex items-center justify-center gap-x-6">
