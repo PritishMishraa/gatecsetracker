@@ -50,11 +50,11 @@ const Meteors = () => {
           ></div>
         </span>
       ))}
-      <Balancer>
-        <p className="justify-center text-3xl font-bold tracking-tight sm:text-4xl text-white z-10">
+      <p>
+        <Balancer className="justify-center text-3xl font-bold tracking-tight sm:text-4xl text-white z-10">
           New Features Coming Soon
-        </p>
-      </Balancer>
+        </Balancer>
+      </p>
       <svg
         viewBox="0 0 1024 1024"
         className="absolute left-1/2 top-1/2 z-1 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
