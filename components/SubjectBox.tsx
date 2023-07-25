@@ -39,12 +39,12 @@ const SubjectBox = () => {
             cy="512"
             r="512"
             fill="url(#827591b1-ce8c-4110-b064-7cb85a0b1217)"
-            fill-opacity="0.7"
+            fillOpacity="0.7"
           ></circle>
           <defs>
             <radialGradient id="827591b1-ce8c-4110-b064-7cb85a0b1217">
-              <stop stop-color="#0061ff"></stop>
-              <stop offset="1" stop-color="#60efff"></stop>
+              <stop stopColor="#0061ff"></stop>
+              <stop offset="1" stopColor="#60efff"></stop>
             </radialGradient>
           </defs>
         </svg>
