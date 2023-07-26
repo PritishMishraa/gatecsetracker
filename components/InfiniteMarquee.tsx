@@ -1,20 +1,4 @@
-const subjects = [
-  "Aptitude",
-  "Algorithms",
-  "Digital Logic",
-  "C Programming",
-  "Data Structure",
-  "Compiler Design",
-  "Operating System",
-  "Computer Network",
-  "Discrete Mathematics",
-  "Theory of Computation",
-  "Engineering Mathematics",
-  "Database Management System",
-  "Computer Organization & Architecture",
-];
-
-const InfiniteMarquee = () => {
+const InfiniteMarquee = ({ data }: { data: string[] }) => {
   return (
     <div
       className="relative overflow-hidden w-full h-full"
@@ -24,16 +8,16 @@ const InfiniteMarquee = () => {
       }}
     >
       <div className="animate-marquee max-w-[8rem]">
-        {subjects.map((subject, index) => (
+        {data.map((item, index) => (
           <div key={index} className="py-2 font-semibold">
-            {subject}
+            {item}
           </div>
         ))}
       </div>
       <div className="animate-marquee-reverse absolute top-0 max-w-[8rem]">
-        {subjects.map((subject, index) => (
+        {data.map((item, index) => (
           <div key={index} className="py-2 font-semibold">
-            {subject}
+            {item}
           </div>
         ))}
       </div>

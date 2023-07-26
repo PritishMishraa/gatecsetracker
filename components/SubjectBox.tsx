@@ -2,12 +2,28 @@ import React from "react";
 import { Balancer } from "react-wrap-balancer";
 import InfiniteMarquee from "./InfiniteMarquee";
 
+const subjects = [
+  "Aptitude",
+  "Algorithms",
+  "Digital Logic",
+  "C Programming",
+  "Data Structure",
+  "Compiler Design",
+  "Operating System",
+  "Computer Network",
+  "Discrete Mathematics",
+  "Theory of Computation",
+  "Engineering Mathematics",
+  "Database Management System",
+  "Computer Organization & Architecture",
+];
+
 const SubjectBox = () => {
   return (
     <div className="w-full">
       <div className="p-2 md:hidden">
         <h2 className="max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
-          Tracking
+          Track Every Subject
         </h2>
         <p>
           <Balancer className="max-w-xl text-lg leading-8 text-muted-foreground">
@@ -18,7 +34,7 @@ const SubjectBox = () => {
       <div className="relative isolate overflow-hidden bg-primary-foreground border px-6 text-center rounded-3xl sm:px-16 w-full my-auto flex h-96 justify-around">
         <div className="hidden md:flex md:flex-col my-auto">
           <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
-            Tracking
+            Track Every Subject
           </h2>
           <p>
             <Balancer className="mx-auto max-w-xl text-lg leading-8 text-muted-foreground">
@@ -27,7 +43,7 @@ const SubjectBox = () => {
           </p>
         </div>
         <div className="flex flex-col">
-          <InfiniteMarquee />
+          <InfiniteMarquee data={subjects} />
         </div>
         <svg
           viewBox="0 0 1024 1024"
