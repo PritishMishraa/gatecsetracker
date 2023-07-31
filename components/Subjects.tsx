@@ -9,8 +9,6 @@ import {
   BarChart4,
   Box,
   CheckSquare,
-  Infinity,
-  FileTerminal,
   ReplaceAll,
   FileTerminalIcon,
   InfinityIcon,
@@ -109,7 +107,7 @@ const SUBJECTS: {
     icon: <FileTerminalIcon className="h-6 w-6" />,
   },
   {
-    title: "Algorith",
+    title: "Algorithms",
     slug: "algo",
     description:
       "This subject covers the study of designing and building algorithms.",
