@@ -16,6 +16,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta
+          property="og:image"
+          content="https://i.postimg.cc/brn0WTcz/GCT-OG-Image.png"
+        />
+        <meta
+          name="twitter:image"
+          content="https://i.postimg.cc/brn0WTcz/GCT-OG-Image.png"
+        />
         <script
           defer
           src="https://static.cloudflareinsights.com/beacon.min.js"
