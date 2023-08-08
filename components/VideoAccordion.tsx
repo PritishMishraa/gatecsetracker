@@ -43,13 +43,22 @@ export default function VideoAccordion({
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
           <AccordionTrigger>
-            <h1 className="font-bold text-lg">
-              Day - {day}{" "}
-              <span className="text-muted-foreground font-normal text-base ml-1 block">
-                {videos} videos
-              </span>
-            </h1>
-            <Progress value={calculateProgress()} className="w-52 md:w-80" />
+            <div className="flex items-center w-full">
+              <h1 className="font-bold text-lg flex-shrink-0">
+                Day - {day}{" "}
+                <span className="text-muted-foreground font-normal text-base ml-1 block">
+                  {videos} videos
+                </span>
+              </h1>
+              <div className="flex-grow mx-4">
+                <div className="flex justify-center">
+                  <Progress
+                    value={calculateProgress()}
+                    className="w-full md:w-96"
+                  />
+                </div>
+              </div>
+            </div>
           </AccordionTrigger>
           <AccordionContent>
             {videosForDay.map((video) => (
