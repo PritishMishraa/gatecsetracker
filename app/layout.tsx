@@ -1,5 +1,7 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
+import Footer from "@/components/Footer";
+import Announcment from "@/components/Announcment";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -49,7 +51,14 @@ export default function RootLayout({
           data-cf-beacon='{"token": "73fa6f1bac1b4c22a158830005f40c56"}'
         ></script>
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="flex min-h-screen flex-col">
+          <Announcment />
+          <div className="flex-1">{children}</div>
+          <div className="h-px bg-secondary w-full mt-20"></div>
+          <Footer />
+        </div>
+      </body>
     </html>
   );
 }

@@ -39,8 +39,8 @@ export default function VideoAccordion({
   }
 
   return (
-    <div className="max-w-2xl mx-auto py-1">
-      <Accordion type="single" collapsible className="w-full px-4 md:px-0">
+    <div className="mx-auto py-1">
+      <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
           <AccordionTrigger>
             <h1 className="font-bold text-lg">

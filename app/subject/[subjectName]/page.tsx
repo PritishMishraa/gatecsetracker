@@ -126,7 +126,7 @@ export default function Home({ params }: { params: { subjectName: string } }) {
   };
 
   return (
-    <div className="max-w-2xl mx-auto mb-20 p-4 md:p-0">
+    <div className="container">
       <h1 className="text-4xl md:text-6xl font-bold mt-10 mb-4">{subject}</h1>
       <p className="text-lg mb-4">Total Number of Days: {totalDays}</p>
 
