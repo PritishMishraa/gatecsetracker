@@ -183,3 +183,52 @@ export function StudyDaysCombobox({
     </Popover>
   );
 }
+
+export function SpeedCombobox({
+  speedOption,
+  handleSpeedOption,
+}: {
+  speedOption: number;
+  handleSpeedOption: (value: number) => void;
+}) {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <Button
+          variant="outline"
+          role="combobox"
+          aria-expanded={open}
+          className="w-[200px] justify-between"
+        >
+          {speedOption}x
+          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-[200px] p-0">
+        <Command>
+          <CommandGroup>
+            {[1, 1.25, 1.5, 1.75, 2].map((option) => (
+              <CommandItem
+                key={option}
+                onSelect={() => {
+                  handleSpeedOption(option);
+                  setOpen(false);
+                }}
+              >
+                <Check
+                  className={cn(
+                    "mr-2 h-4 w-4",
+                    speedOption === option ? "opacity-100" : "opacity-0"
+                  )}
+                />
+                {option}x
+              </CommandItem>
+            ))}
+          </CommandGroup>
+        </Command>
+      </PopoverContent>
+    </Popover>
+  );
+}

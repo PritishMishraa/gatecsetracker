@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 
 import VideoAccordion from "@/components/VideoAccordion";
 import {
+  SpeedCombobox,
   StudyDaysCombobox,
   StudyTimeHourCombobox,
   StudyTimeMinuteCombobox,
@@ -17,7 +18,7 @@ export default function Home({ params }: { params: { subjectName: string } }) {
   const subject = decodeURIComponent(params.subjectName);
   const subjectCode = searchParams.get("subjectCode");
 
-  const data = require("../../../data/" + subjectCode + ".json");
+  const data: Video[] = require("../../../data/" + subjectCode + ".json");
   const totalVideos = data.length;
 
   const [studyDaysOption, setDaysOption] = useState(5);
@@ -25,6 +26,7 @@ export default function Home({ params }: { params: { subjectName: string } }) {
     hours: 4,
     minutes: 0,
   });
+  const [studySpeedOption, setStudySpeedOption] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
   const [checkboxStatus, setCheckboxStatus] = useState<Record<string, boolean>>(
     {}
@@ -88,7 +90,7 @@ export default function Home({ params }: { params: { subjectName: string } }) {
 
   for (let i = 0; i < totalVideos; i++) {
     const video = data[i];
-    const videoDuration = video.videoDurationInSeconds;
+    const videoDuration = video.videoDurationInSeconds / studySpeedOption;
 
     if (currentTotalTime + videoDuration <= studyTimePerDay) {
       currentDay.push(video);
@@ -125,11 +127,15 @@ export default function Home({ params }: { params: { subjectName: string } }) {
     });
   };
 
+  const handleSpeedOption = (option: number) => {
+    setStudySpeedOption(option);
+  };
+
   return (
     <div className="container">
       <div className="mt-12 bg-primary-foreground border px-4 md:px-8 py-12 rounded-3xl w-full">
         <h1 className="text-4xl md:text-6xl font-bold mb-4">{subject}</h1>
-        <p className="text-xl mt-2 text-white/60 bg-secondary py-2 px-4 max-w-fit rounded-2xl">
+        <p className="text-lg md:text-2xl mt-2 text-white/60 bg-secondary py-2 px-4 max-w-fit rounded-2xl">
           Total Number of Days: {totalDays}
         </p>
       </div>
@@ -142,6 +148,10 @@ export default function Home({ params }: { params: { subjectName: string } }) {
         <StudyTimeMinuteCombobox
           studyTimeOption={studyTimeOption}
           handleStudyTimeOption={handleStudyTimeOption}
+        />
+        <SpeedCombobox
+          speedOption={studySpeedOption}
+          handleSpeedOption={handleSpeedOption}
         />
       </div>
 
