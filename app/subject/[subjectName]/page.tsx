@@ -127,8 +127,12 @@ export default function Home({ params }: { params: { subjectName: string } }) {
 
   return (
     <div className="container">
-      <h1 className="text-4xl md:text-6xl font-bold mt-10 mb-4">{subject}</h1>
-      <p className="text-lg mb-4">Total Number of Days: {totalDays}</p>
+      <div className="mt-12 bg-primary-foreground border px-4 md:px-8 py-12 rounded-3xl w-full">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">{subject}</h1>
+        <p className="text-xl mt-2 text-white/60 bg-secondary py-2 px-4 max-w-fit rounded-2xl">
+          Total Number of Days: {totalDays}
+        </p>
+      </div>
 
       <div className="flex md:flex-row flex-col justify-center gap-4 mt-4 items-center">
         <StudyTimeHourCombobox
