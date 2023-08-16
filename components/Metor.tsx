@@ -1,7 +1,9 @@
 import React from "react";
+import { Button } from "./ui/button";
+import { Github } from "lucide-react";
 import { Balancer } from "react-wrap-balancer";
 
-const Meteors = () => {
+const Meteors = ({ stars }: { stars: number }) => {
   const meteorsData = [
     { left: -47, delay: 0.477302, duration: 3 },
     { left: -196, delay: 0.721956, duration: 2 },
@@ -50,11 +52,30 @@ const Meteors = () => {
           ></div>
         </span>
       ))}
-      <p>
-        <Balancer className="justify-center text-3xl font-bold tracking-tight sm:text-4xl text-white z-10">
-          New Features Coming Soon
-        </Balancer>
-      </p>
+      <div className="space-y-6 z-10">
+        <p>
+          <Balancer className="justify-center text-3xl font-bold tracking-tight sm:text-4xl text-white z-10">
+            It&apos;s Open Source!
+          </Balancer>
+        </p>
+        <Button
+          className="rounded-full hover:ring-4 ring-white"
+          variant="secondary"
+        >
+          <a
+            className="flex max-w-fit items-center justify-center space-x-2 rounded-full px-5 py-2 text-sm"
+            href="https://github.com/PritishMishraa/gatecsetracker"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Github />
+            <p>
+              <span className="hidden sm:inline-block">Star on</span> GitHub{" "}
+              <span className="font-semibold">{stars}</span>
+            </p>
+          </a>
+        </Button>
+      </div>
       <svg
         viewBox="0 0 1024 1024"
         className="absolute left-1/2 top-1/2 z-1 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
