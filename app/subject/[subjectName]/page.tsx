@@ -46,6 +46,11 @@ export default function Home({ params }: { params: { subjectName: string } }) {
     const savedStudyTimeMinuteOption = localStorage.getItem(
       "studyTimeMinuteOption"
     );
+    const savedStudySpeedOption = localStorage.getItem("studySpeedOption");
+
+    savedStudySpeedOption &&
+      setStudySpeedOption(parseFloat(savedStudySpeedOption));
+
     if (savedDaysOption) {
       setDaysOption(parseInt(savedDaysOption));
     }
@@ -128,6 +133,7 @@ export default function Home({ params }: { params: { subjectName: string } }) {
   };
 
   const handleSpeedOption = (option: number) => {
+    localStorage.setItem("studySpeedOption", option.toString());
     setStudySpeedOption(option);
   };
 
