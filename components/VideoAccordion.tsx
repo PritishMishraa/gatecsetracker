@@ -24,18 +24,15 @@ export default function VideoAccordion({
   setCheckboxStatus,
 }: TVideoAccordion) {
   function calculateProgress() {
-    const totalVideos = videosForDay.length;
-    const startIndex = parseInt(videosForDay[0].index);
-    const endIndex = parseInt(videosForDay[videosForDay.length - 1].index);
-    let totalWatchedVideos = 0;
-
-    for (let i = startIndex; i <= endIndex; i++) {
-      if (checkboxStatus[i.toString()] === true) {
-        totalWatchedVideos++;
+    let totalWatchedVideosTime = 0;
+    let totalLength = 0
+    for (let i = 0; i < videosForDay.length; i++) {
+      if (checkboxStatus[videosForDay[i].index] === true) {
+        totalWatchedVideosTime += (videosForDay[i].videoDurationInSeconds)
       }
+      totalLength += videosForDay[i].videoDurationInSeconds;
     }
-
-    return (totalWatchedVideos / totalVideos) * 100;
+    return (totalWatchedVideosTime / totalLength) * 100;
   }
 
   return (
