@@ -111,7 +111,12 @@ export default function Home({ params }: { params: { subjectName: string } }) {
     groupedVideos.push(currentDay);
   }
 
+  const filteredGroupedVideos = groupedVideos.filter((day) =>
+    day.some((video) => !checkboxStatus[video.index])
+  );
+
   const totalDays = groupedVideos.length;
+  const totalDaysLeft = filteredGroupedVideos.length;
 
   const totalPages = Math.ceil(totalDays / daysPerPage);
   const startIndex = (currentPage - 1) * daysPerPage;
@@ -142,6 +147,9 @@ export default function Home({ params }: { params: { subjectName: string } }) {
       <div className="mt-12 bg-primary-foreground border px-4 md:px-8 py-12 rounded-3xl w-full">
         <h1 className="text-4xl md:text-6xl font-bold mb-4">{subject}</h1>
         <p className="text-lg md:text-2xl mt-2 text-white/60 bg-secondary py-2 px-4 max-w-fit rounded-2xl">
+          Total Days Left: {totalDaysLeft}
+        </p>
+        <p className="text-md md:text-xl mt-2 text-white/60 py-2 px-4 max-w-fit rounded-2xl">
           Total Number of Days: {totalDays}
         </p>
       </div>
