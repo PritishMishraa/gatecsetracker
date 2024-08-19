@@ -11,6 +11,8 @@ import {
   StudyTimeMinuteCombobox,
 } from "@/components/OptionCombobox";
 import { Button } from "@/components/ui/button";
+import InfoTooltip from "@/components/InfoTooltip";
+import { convertSecondsToTime } from "@/lib/utils";
 
 export default function Home({ params }: { params: { subjectName: string } }) {
   const searchParams = useSearchParams();
@@ -20,6 +22,7 @@ export default function Home({ params }: { params: { subjectName: string } }) {
 
   const data: Video[] = require("../../../data/" + subjectCode + ".json");
   const totalVideos = data.length;
+  const totalDuration = data.reduce((acc, video) => acc + video.videoDurationInSeconds, 0);
 
   const [studyDaysOption, setDaysOption] = useState(5);
   const [studyTimeOption, setStudyTimeOption] = useState({
@@ -149,8 +152,8 @@ export default function Home({ params }: { params: { subjectName: string } }) {
         <p className="text-lg md:text-2xl mt-2 text-white/60 bg-secondary py-2 px-4 max-w-fit rounded-2xl">
           Total Days Left: {totalDaysLeft}
         </p>
-        <p className="text-md md:text-xl mt-2 text-white/60 py-2 px-4 max-w-fit rounded-2xl">
-          Total Number of Days: {totalDays}
+        <p className="text-md md:text-xl mt-2 text-white/60 py-2 px-4 max-w-fit rounded-2xl flex items-center gap-2">
+          Total Number of Days: {totalDays} <InfoTooltip totalDuration={convertSecondsToTime(totalDuration)} />
         </p>
       </div>
 
