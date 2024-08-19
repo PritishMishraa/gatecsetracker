@@ -46,6 +46,12 @@ export default function RootLayout({
           content="https://i.postimg.cc/brn0WTcz/GCT-OG-Image.png"
         />
         <script
+          src="https://beamanalytics.b-cdn.net/beam.min.js"
+          data-token="8f32dfb2-00bc-4a24-8d11-36e1b5eb9fd3"
+          async
+        >
+        </script>
+        <script
           defer
           src="https://static.cloudflareinsights.com/beacon.min.js"
           data-cf-beacon='{"token": "73fa6f1bac1b4c22a158830005f40c56"}'
