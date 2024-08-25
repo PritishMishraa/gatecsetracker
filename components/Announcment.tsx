@@ -6,6 +6,7 @@ const Announcment = () => {
       <div className="text-sm leading-6 flex text-white container">
         <Link
           href="/request"
+          target="_blank"
           className="flex flex-col sm:flex-row py-2.5 sm:items-center w-full justify-between"
         >
           <p>
