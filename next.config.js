@@ -11,6 +11,14 @@ const nextConfig = {
       },
     ];
   },
+  rewrites: async () => {
+    return [
+      {
+        source: '/request',
+        destination: '/request/index.html',
+      },
+    ]
+  },
 };
 
 module.exports = nextConfig;
@@ -19,7 +27,7 @@ module.exports = nextConfig;
 const ContentSecurityPolicy = `
     default-src 'self';
     script-src 'self' 'unsafe-eval' 'unsafe-inline' https://beamanalytics.b-cdn.net https://www.clarity.ms *.youtube.com *.twitter.com static.cloudflareinsights.com;
-    child-src *.youtube.com *.google.com *.twitter.com;
+    child-src *.youtube.com *.google.com *.twitter.com https://app.youform.com/;
     style-src 'self' 'unsafe-inline' *.googleapis.com;
     img-src * blob: data:;
     media-src 'none';
