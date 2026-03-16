@@ -17,38 +17,55 @@ import { convertSecondsToTime } from "@/lib/utils";
 export default function Home({ params }: { params: { subjectName: string } }) {
   const searchParams = useSearchParams();
 
+  const [tab, setTab] = useState<"all" | "revision">("all");
+  const [starredVideos, setStarredVideos] = useState<string[]>([]);
+
   const subject = decodeURIComponent(params.subjectName);
   const subjectCode = searchParams.get("subjectCode");
 
   const data: Video[] = require("../../../data/" + subjectCode + ".json");
   const totalVideos = data.length;
-  const totalDuration = data.reduce((acc, video) => acc + video.videoDurationInSeconds, 0);
+
+  const totalDuration = data.reduce(
+    (acc, video) => acc + video.videoDurationInSeconds,
+    0
+  );
 
   const [studyDaysOption, setDaysOption] = useState(5);
+
   const [studyTimeOption, setStudyTimeOption] = useState({
     hours: 4,
     minutes: 0,
   });
+
   const [studySpeedOption, setStudySpeedOption] = useState(1);
+
   const [currentPage, setCurrentPage] = useState(1);
-  const [checkboxStatus, setCheckboxStatus] = useState<Record<string, boolean>>(
-    {}
-  );
+
+  const [checkboxStatus, setCheckboxStatus] = useState<
+    Record<string, boolean>
+  >({});
+
   const daysPerPage = studyDaysOption;
+
   const studyTimePerDay =
     3600 * studyTimeOption.hours + 60 * studyTimeOption.minutes;
 
   useEffect(() => {
     const savedDaysOption = localStorage.getItem("studyDaysOption");
+
     const savedCheckboxStatus = localStorage.getItem(
       `checkboxStatus-${subjectCode}`
     );
+
     const savedStudyTimeHourOption = localStorage.getItem(
       "savedStudyTimeHourOption"
     );
+
     const savedStudyTimeMinuteOption = localStorage.getItem(
       "studyTimeMinuteOption"
     );
+
     const savedStudySpeedOption = localStorage.getItem("studySpeedOption");
 
     savedStudySpeedOption &&
@@ -57,9 +74,11 @@ export default function Home({ params }: { params: { subjectName: string } }) {
     if (savedDaysOption) {
       setDaysOption(parseInt(savedDaysOption));
     }
+
     if (savedCheckboxStatus) {
       setCheckboxStatus(JSON.parse(savedCheckboxStatus));
     }
+
     if (savedStudyTimeHourOption && savedStudyTimeMinuteOption) {
       setStudyTimeOption({
         hours: parseInt(savedStudyTimeHourOption),
@@ -82,22 +101,41 @@ export default function Home({ params }: { params: { subjectName: string } }) {
 
   useEffect(() => {
     setCurrentPage(1);
+
     localStorage.setItem(
       "savedStudyTimeHourOption",
       studyTimeOption.hours.toString()
     );
+
     localStorage.setItem(
       "studyTimeMinuteOption",
       studyTimeOption.minutes.toString()
     );
   }, [studyTimeOption]);
 
+  useEffect(() => {
+    const loadStars = () => {
+      const saved = JSON.parse(localStorage.getItem("starredVideos") || "[]");
+      setStarredVideos(saved);
+    };
+
+    loadStars();
+
+    window.addEventListener("starredVideosUpdated", loadStars);
+
+    return () => {
+      window.removeEventListener("starredVideosUpdated", loadStars);
+    };
+  }, []);
+
   const groupedVideos: Video[][] = [];
+
   let currentDay: Video[] = [];
   let currentTotalTime = 0;
 
   for (let i = 0; i < totalVideos; i++) {
     const video = data[i];
+
     const videoDuration = video.videoDurationInSeconds / studySpeedOption;
 
     if (currentTotalTime + videoDuration <= studyTimePerDay) {
@@ -114,15 +152,24 @@ export default function Home({ params }: { params: { subjectName: string } }) {
     groupedVideos.push(currentDay);
   }
 
+  const revisionGroupedVideos = groupedVideos
+    .map((day) =>
+      day.filter((video) => starredVideos.includes(video.index))
+    )
+    .filter((day) => day.length > 0);
+
   const filteredGroupedVideos = groupedVideos.filter((day) =>
     day.some((video) => !checkboxStatus[video.index])
   );
 
   const totalDays = groupedVideos.length;
+
   const totalDaysLeft = filteredGroupedVideos.length;
 
   const totalPages = Math.ceil(totalDays / daysPerPage);
+
   const startIndex = (currentPage - 1) * daysPerPage;
+
   const endIndex = startIndex + daysPerPage;
 
   const handleStudyDaysOption = (option: number) => {
@@ -145,15 +192,24 @@ export default function Home({ params }: { params: { subjectName: string } }) {
     setStudySpeedOption(option);
   };
 
+  const videosToRender =
+    tab === "revision" ? revisionGroupedVideos : groupedVideos;
+
   return (
     <div className="container">
       <div className="mt-12 bg-primary-foreground border px-4 md:px-8 py-12 rounded-3xl w-full">
         <h1 className="text-4xl md:text-6xl font-bold mb-4">{subject}</h1>
+
         <p className="text-lg md:text-2xl mt-2 text-white/60 bg-secondary py-2 px-4 max-w-fit rounded-2xl">
           Total Days Left: {totalDaysLeft}
         </p>
+
         <p className="text-md md:text-xl mt-2 text-white/60 py-2 px-4 max-w-fit rounded-2xl flex items-center gap-2">
-          Total Number of Days: {totalDays} <InfoTooltip totalDuration={convertSecondsToTime(totalDuration)} />
+          Total Number of Days: {totalDays}
+
+          <InfoTooltip
+            totalDuration={convertSecondsToTime(totalDuration)}
+          />
         </p>
       </div>
 
@@ -162,17 +218,37 @@ export default function Home({ params }: { params: { subjectName: string } }) {
           studyTimeOption={studyTimeOption}
           handleStudyTimeOption={handleStudyTimeOption}
         />
+
         <StudyTimeMinuteCombobox
           studyTimeOption={studyTimeOption}
           handleStudyTimeOption={handleStudyTimeOption}
         />
+
         <SpeedCombobox
           speedOption={studySpeedOption}
           handleSpeedOption={handleSpeedOption}
         />
       </div>
 
-      {groupedVideos.slice(startIndex, endIndex).map((videosForDay, index) => (
+      {/* Tabs */}
+
+      <div className="flex gap-4 mt-6">
+        <Button
+          variant={tab === "all" ? "default" : "outline"}
+          onClick={() => setTab("all")}
+        >
+          All Videos
+        </Button>
+
+        <Button
+          variant={tab === "revision" ? "default" : "outline"}
+          onClick={() => setTab("revision")}
+        >
+          ⭐ Revision ({starredVideos.length})
+        </Button>
+      </div>
+
+      {videosToRender.slice(startIndex, endIndex).map((videosForDay, index) => (
         <VideoAccordion
           key={index}
           day={startIndex + index + 1}
@@ -188,6 +264,7 @@ export default function Home({ params }: { params: { subjectName: string } }) {
           studyDaysOption={studyDaysOption}
           handleStudyDaysOption={handleStudyDaysOption}
         />
+
         <div className="flex justify-center text-center">
           <Button
             className="mx-1 px-3 py-1 rounded bg-gray-200 text-gray-800 hover:bg-gray-300"
@@ -196,6 +273,7 @@ export default function Home({ params }: { params: { subjectName: string } }) {
           >
             First
           </Button>
+
           <Button
             className="mx-1 px-3 py-1 rounded bg-gray-200 text-gray-800 hover:bg-gray-300"
             disabled={currentPage === 1}
@@ -203,9 +281,11 @@ export default function Home({ params }: { params: { subjectName: string } }) {
           >
             Prev
           </Button>
+
           <Button className="mx-1 px-3 py-1 rounded bg-blue-500 text-white hover:bg-blue-500">
             {currentPage}
           </Button>
+
           <Button
             className="mx-1 px-3 py-1 rounded bg-gray-200 text-gray-800 hover:bg-gray-300"
             disabled={currentPage === totalPages}
@@ -213,6 +293,7 @@ export default function Home({ params }: { params: { subjectName: string } }) {
           >
             Next
           </Button>
+
           <Button
             className="mx-1 px-3 py-1 rounded bg-gray-200 text-gray-800 hover:bg-gray-300"
             disabled={currentPage === totalPages}
