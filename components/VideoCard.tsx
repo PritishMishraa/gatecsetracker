@@ -1,6 +1,8 @@
 "use client";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Dispatch, SetStateAction } from "react";
+import { Star } from "lucide-react";
+import { useEffect, useState } from "react";
 
 function capitalizeFirstLetter(str: string): string {
   return str.replace(/\b\w/g, (match) => match.toUpperCase());
@@ -32,6 +34,34 @@ export default function VideoCard({
 }: TVideoCard) {
   const isChecked = checkboxStatus[video.index];
 
+  const [starred , setStarred] = useState(false);
+
+  useEffect(() => {
+  const saved = JSON.parse(localStorage.getItem("starredVideos") || "[]");
+  
+  if (saved.includes(video.index)) {
+    setStarred(true);
+  }
+}, [video.index]);
+
+const toggleStar = () => {
+  const saved = JSON.parse(localStorage.getItem("starredVideos") || "[]");
+
+  
+
+  if (saved.includes(video.index)) {
+    const updated = saved.filter((id: string) => id !== video.index);
+    localStorage.setItem("starredVideos", JSON.stringify(updated));
+    setStarred(false);
+  } else {
+    saved.push(video.index);
+    localStorage.setItem("starredVideos", JSON.stringify(saved));
+    setStarred(true);
+  }
+  window.dispatchEvent(new Event("starredVideosUpdated"));
+};
+
+
   const handleCheckboxChange = (index: string) => {
     setCheckboxStatus((prevStatus) => ({
       ...prevStatus,
@@ -61,8 +91,17 @@ export default function VideoCard({
         >
           {capitalizeFirstLetter(video.videoTitle)}
         </a>
-        <div className="flex items-center gap-2 ml-1">
+        <div className="flex items-center gap-3 ml-1">
           <p className="text-md text-white/60">{formatTime(video.videoTime)}</p>
+          <button onClick={toggleStar}>
+    <Star
+      className={`w-5 h-5 cursor-pointer transition ${
+        starred
+          ? "text-yellow-400 fill-yellow-400"
+          : "text-gray-400 hover:text-yellow-400"
+      }`}
+    />
+  </button>
           <Checkbox
             checked={isChecked}
             onCheckedChange={() => handleCheckboxChange(video.index)}
