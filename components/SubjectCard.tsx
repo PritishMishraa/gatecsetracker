@@ -10,7 +10,7 @@ type TSubjectCard = {
 const SubjectCard = ({ subjectCode, subjectName }: TSubjectCard) => {
   return (
     <Link
-      href={{ pathname: `/subject/${subjectName}`, query: { subjectCode } }}
+      href={{ pathname: `/subject/${subjectName}` }}
       className="group relative block h-64 mx-2 md:mx-0"
     >
       <span className="absolute inset-0 border-2 border-dashed border-primary"></span>

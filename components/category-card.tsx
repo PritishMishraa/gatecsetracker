@@ -133,8 +133,7 @@ export default function CategoryCard({
         <h3 className="mt-4 font-semibold leading-7 text-white">
           <Link
             href={{
-              pathname: `/subject/${name}`,
-              query: { subjectCode: slug },
+              pathname: `/subject/${slug}`
             }}
           >
             <span className="absolute inset-0 rounded-2xl" />

@@ -1,54 +1,93 @@
 [
   {
-    "subjectName": "Discrete Mathematics",
-    "subjectCode": "dm"
+    "name": "Discrete Mathematics",
+    "slug": "discrete-mathematics",
+    "code": "dm",
+    "description": "This subject covers the study of mathematical structures that are fundamentally discrete rather than continuous.",
+    "icon": "FunctionSquare"
   },
   {
-    "subjectName": "Theory of Computation",
-    "subjectCode": "toc"
+    "name": "Theory of Computation",
+    "slug": "theory-of-computation",
+    "code": "toc",
+    "description": "This subject deals with the study of abstract machines and computational problems.",
+    "icon": "Settings"
   },
   {
-    "subjectName": "Computer Network",
-    "subjectCode": "cn"
+    "name": "Computer Network",
+    "slug": "computer-network",
+    "code": "cn",
+    "description": "This subject focuses on the study of data communication and computer networking.",
+    "icon": "Network"
   },
   {
-    "subjectName": "Database Management System",
-    "subjectCode": "dbms"
+    "name": "Database Management System",
+    "slug": "database-management-system",
+    "code": "dbms",
+    "description": "This subject covers the study of managing and organizing data in a database.",
+    "icon": "Database"
   },
   {
-    "subjectName": "C Programming",
-    "subjectCode": "cp"
+    "name": "C Programming",
+    "slug": "c-programming",
+    "code": "cp",
+    "description": "This subject involves learning the C programming language and its applications.",
+    "icon": "Code"
   },
   {
-    "subjectName": "Digital Logic",
-    "subjectCode": "dl"
+    "name": "Digital Logic",
+    "slug": "digital-logic",
+    "code": "dl",
+    "description": "This subject focuses on the study of digital circuits and logic gates.",
+    "icon": "Cpu"
   },
   {
-    "subjectName": "Operating System",
-    "subjectCode": "os"
+    "name": "Operating System",
+    "slug": "operating-system",
+    "code": "os",
+    "description": "This subject covers the study of computer operating systems and their components.",
+    "icon": "MonitorUp"
   },
   {
-    "subjectName": "Computer Organization & Architecture",
-    "subjectCode": "coa"
+    "name": "Computer Organization & Architecture",
+    "slug": "computer-organization-and-architecture",
+    "code": "coa",
+    "description": "This subject involves the study of the structure and organization of computer systems.",
+    "icon": "BarChart4"
   },
   {
-    "subjectName": "Data Structure",
-    "subjectCode": "ds"
+    "name": "Data Structure",
+    "slug": "data-structure",
+    "code": "ds",
+    "description": "This subject covers the study of data organization and efficient algorithms.",
+    "icon": "Box"
   },
   {
-    "subjectName": "Aptitude",
-    "subjectCode": "a"
+    "name": "Aptitude",
+    "slug": "aptitude",
+    "code": "a",
+    "description": "This subject involves testing the problem-solving and reasoning skills of individuals.",
+    "icon": "CheckSquare"
   },
   {
-    "subjectName": "Engineering Mathematics",
-    "subjectCode": "em"
+    "name": "Engineering Mathematics",
+    "slug": "engineering-mathematics",
+    "code": "em",
+    "description": "This subject covers the study of mathematical concepts and their applications in engineering.",
+    "icon": "InfinityIcon"
   },
   {
-    "subjectName": "Compiler Design",
-    "subjectCode": "cd"
+    "name": "Compiler Design",
+    "slug": "compiler-design",
+    "code": "cd",
+    "description": "This subject covers the study of designing and building a compiler.",
+    "icon": "FileTerminalIcon"
   },
   {
-    "subjectName": "Algorithms",
-    "subjectCode": "algo"
+    "name": "Algorithms",
+    "slug": "algorithms",
+    "code": "algo",
+    "description": "This subject covers the study of designing and building algorithms.",
+    "icon": "ReplaceAll"
   }
 ]

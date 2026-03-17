@@ -19,6 +19,147 @@ const nextConfig = {
       },
     ]
   },
+  async redirects() {
+    return [
+      {
+        source: "/subject/Discrete Mathematics",
+        destination: "/subject/discrete-mathematics",
+        permanent: true,
+      },
+      {
+        source: "/subject/Discrete%20Mathematics",
+        destination: "/subject/discrete-mathematics",
+        permanent: true,
+      },
+
+      {
+        source: "/subject/Theory of Computation",
+        destination: "/subject/theory-of-computation",
+        permanent: true,
+      },
+      {
+        source: "/subject/Theory%20of%20Computation",
+        destination: "/subject/theory-of-computation",
+        permanent: true,
+      },
+
+      {
+        source: "/subject/Computer Network",
+        destination: "/subject/computer-network",
+        permanent: true,
+      },
+      {
+        source: "/subject/Computer%20Network",
+        destination: "/subject/computer-network",
+        permanent: true,
+      },
+
+      {
+        source: "/subject/Database Management System",
+        destination: "/subject/database-management-system",
+        permanent: true,
+      },
+      {
+        source: "/subject/Database%20Management%20System",
+        destination: "/subject/database-management-system",
+        permanent: true,
+      },
+
+      {
+        source: "/subject/C Programming",
+        destination: "/subject/c-programming",
+        permanent: true,
+      },
+      {
+        source: "/subject/C%20Programming",
+        destination: "/subject/c-programming",
+        permanent: true,
+      },
+
+      {
+        source: "/subject/Digital Logic",
+        destination: "/subject/digital-logic",
+        permanent: true,
+      },
+      {
+        source: "/subject/Digital%20Logic",
+        destination: "/subject/digital-logic",
+        permanent: true,
+      },
+
+      {
+        source: "/subject/Operating System",
+        destination: "/subject/operating-system",
+        permanent: true,
+      },
+      {
+        source: "/subject/Operating%20System",
+        destination: "/subject/operating-system",
+        permanent: true,
+      },
+
+      {
+        source: "/subject/Computer Organization & Architecture",
+        destination: "/subject/computer-organization-and-architecture",
+        permanent: true,
+      },
+      {
+        source: "/subject/Computer%20Organization%20%26%20Architecture",
+        destination: "/subject/computer-organization-and-architecture",
+        permanent: true,
+      },
+      {
+        source: "/subject/Computer Organization and Architecture",
+        destination: "/subject/computer-organization-and-architecture",
+        permanent: true,
+      },
+
+      {
+        source: "/subject/Data Structure",
+        destination: "/subject/data-structure",
+        permanent: true,
+      },
+      {
+        source: "/subject/Data%20Structure",
+        destination: "/subject/data-structure",
+        permanent: true,
+      },
+
+      {
+        source: "/subject/Aptitude",
+        destination: "/subject/aptitude",
+        permanent: true,
+      },
+
+      {
+        source: "/subject/Engineering Mathematics",
+        destination: "/subject/engineering-mathematics",
+        permanent: true,
+      },
+      {
+        source: "/subject/Engineering%20Mathematics",
+        destination: "/subject/engineering-mathematics",
+        permanent: true,
+      },
+
+      {
+        source: "/subject/Compiler Design",
+        destination: "/subject/compiler-design",
+        permanent: true,
+      },
+      {
+        source: "/subject/Compiler%20Design",
+        destination: "/subject/compiler-design",
+        permanent: true,
+      },
+
+      {
+        source: "/subject/Algorithms",
+        destination: "/subject/algorithms",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
