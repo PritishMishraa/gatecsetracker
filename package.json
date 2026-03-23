@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.0.2",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.4",
@@ -27,6 +28,8 @@
     "class-variance-authority": "^0.6.1",
     "clsx": "^1.2.1",
     "cmdk": "^0.2.0",
+    "dotenv": "^17.3.1",
+    "drizzle-orm": "^0.45.1",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.3",
     "eslint-plugin-react-hooks": "^4.6.0",
@@ -44,6 +47,8 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
-    "mini-css-extract-plugin": "^2.9.1"
+    "drizzle-kit": "^0.31.9",
+    "mini-css-extract-plugin": "^2.9.1",
+    "tsx": "^4.21.0"
   }
 }
