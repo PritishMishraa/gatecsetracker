@@ -100,12 +100,16 @@ export default function CategoryCard({
   description,
   icon,
   slug,
+  href,
+  target,
   pattern,
 }: {
   name: string;
   slug: string;
   description: string;
   icon: React.ReactNode;
+  href?: string;
+  target?: React.HTMLAttributeAnchorTarget;
   pattern: {
     y: number;
     squares: [number, number][];
@@ -120,6 +124,8 @@ export default function CategoryCard({
     mouseY.set(clientY - top);
   }
 
+  const destination = href ?? `/subject/${slug}`;
+
   return (
     <div
       key={slug}
@@ -131,11 +137,7 @@ export default function CategoryCard({
       <div className="relative rounded-2xl p-6 pt-16">
         {icon}
         <h3 className="mt-4 font-semibold leading-7 text-white">
-          <Link
-            href={{
-              pathname: `/subject/${slug}`
-            }}
-          >
+          <Link href={destination} target={target}>
             <span className="absolute inset-0 rounded-2xl" />
             {name}
           </Link>
