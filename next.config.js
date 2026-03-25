@@ -126,12 +126,6 @@ const nextConfig = {
       },
 
       {
-        source: "/subject/Aptitude",
-        destination: "/subject/aptitude",
-        permanent: true,
-      },
-
-      {
         source: "/subject/Engineering Mathematics",
         destination: "/subject/engineering-mathematics",
         permanent: true,
@@ -153,11 +147,6 @@ const nextConfig = {
         permanent: true,
       },
 
-      {
-        source: "/subject/Algorithms",
-        destination: "/subject/algorithms",
-        permanent: true,
-      },
     ];
   },
 };
