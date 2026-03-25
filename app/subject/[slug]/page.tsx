@@ -23,10 +23,11 @@ const subjectDataModules = {
 export default async function Page({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
+  const { slug } = await params;
   const subjectData = subjects.find(
-    (s: (typeof subjects)[number]) => s.slug === params.slug
+    (s: (typeof subjects)[number]) => s.slug === slug
   );
 
   if (!subjectData) {
