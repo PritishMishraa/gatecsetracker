@@ -16,7 +16,7 @@ const SubjectCard = ({ subjectCode, subjectName }: TSubjectCard) => {
       <span className="absolute inset-0 border-2 border-dashed border-primary"></span>
 
       <div className="relative flex h-full transform items-end border-2 border-primary bg-primary transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2 text-black">
-        <div className="p-4 !pt-0 transition-opacity group-hover:absolute group-hover:opacity-0 sm:p-6 lg:p-8">
+        <div className="p-4 pt-0! transition-opacity group-hover:absolute group-hover:opacity-0 sm:p-6 lg:p-8">
           <FunctionSquare size={48} />
 
           <h2 className="mt-4 text-xl font-medium sm:text-2xl">

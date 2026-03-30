@@ -31,7 +31,7 @@ const Meteors = ({ stars }: { stars: number }) => {
       {meteorsData.map((meteor, index) => (
         <span
           key={index}
-          className="absolute top-1/2 left-1/2 h-0.5 w-0.5 rotate-[215deg] animate-meteor rounded-[9999px] bg-white shadow-[0_0_0_1px_#ffffff10]"
+          className="absolute top-1/2 left-1/2 h-0.5 w-0.5 rotate-215 animate-meteor rounded-[9999px] bg-white shadow-[0_0_0_1px_#ffffff10]"
           style={{
             top: "-5px",
             left: `${meteor.left}px`,
@@ -83,7 +83,7 @@ const Meteors = ({ stars }: { stars: number }) => {
       </div>
       <svg
         viewBox="0 0 1024 1024"
-        className="absolute left-1/2 top-1/2 z-1 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
+        className="absolute left-1/2 top-1/2 z-1 h-256 w-5xl -translate-x-1/2 mask-[radial-gradient(closest-side,white,transparent)]"
         aria-hidden="true"
       >
         <circle

@@ -61,7 +61,7 @@ export default function VideoCard({
           href={video.videoLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-md font-medium flex-grow truncate hover:underline ml-2"
+          className="text-md font-medium grow truncate hover:underline ml-2"
         >
           {capitalizeFirstLetter(video.videoTitle)}
         </a>

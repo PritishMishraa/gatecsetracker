@@ -41,13 +41,13 @@ export default function VideoAccordion({
         <AccordionItem value="item-1">
           <AccordionTrigger>
             <div className="flex items-center w-full">
-              <h1 className="font-bold text-lg flex-shrink-0">
+              <h1 className="font-bold text-lg shrink-0">
                 Day - {day}{" "}
                 <span className="text-muted-foreground font-normal text-base ml-1 block">
                   {videos} videos
                 </span>
               </h1>
-              <div className="flex-grow mx-4">
+              <div className="grow mx-4">
                 <div className="flex justify-center">
                   <Progress
                     value={calculateProgress()}

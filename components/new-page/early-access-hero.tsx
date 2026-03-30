@@ -8,15 +8,15 @@ export function EarlyAccessHero() {
         Coming back. Better.
       </div>
 
-      <h1 className="mb-5 max-w-[11ch] [font-family:var(--font-instrument-serif)] text-[clamp(2rem,10vw,3.375rem)] leading-[1.02] tracking-[-0.02em] [text-wrap:balance] md:mb-6 md:max-w-[12ch] md:leading-[1.1]">
+      <h1 className="mb-5 max-w-[11ch] [font-family:var(--font-instrument-serif)] text-[clamp(2rem,10vw,3.375rem)] leading-[1.02] tracking-[-0.02em] text-balance md:mb-6 md:max-w-[12ch] md:leading-[1.1]">
         Track your prep.
         <br />
-        <span className="bg-gradient-to-br from-blue-300 to-blue-600 bg-clip-text italic text-transparent">
+        <span className="bg-linear-to-br from-blue-300 to-blue-600 bg-clip-text italic text-transparent">
           Actually finish it.
         </span>
       </h1>
 
-      <p className="mb-10 max-w-[30rem] text-[14px] leading-7 text-white/55 [text-wrap:pretty] sm:text-[15px] sm:leading-8 md:mb-12 md:max-w-[420px]">
+      <p className="mb-10 max-w-120 text-[14px] leading-7 text-white/55 text-pretty sm:text-[15px] sm:leading-8 md:mb-12 md:max-w-[420px]">
         GATE CSE Tracker is being rebuilt from scratch{" "}
         <strong className="font-medium text-white/80">
           with cleaner UI, curated resources, real progress tracking,
@@ -29,11 +29,11 @@ export function EarlyAccessHero() {
         What&apos;s coming
       </p>
 
-      <div className="max-w-[420px] overflow-hidden rounded-[18px] border border-white/10 bg-white/[0.02] shadow-[0_22px_60px_rgba(0,0,0,0.18)]">
+      <div className="max-w-[420px] overflow-hidden rounded-[18px] border border-white/10 bg-white/2 shadow-[0_22px_60px_rgba(0,0,0,0.18)]">
         {EARLY_ACCESS_FEATURES.map((feature, index) => (
           <div
             key={feature}
-            className="flex gap-3 border-b border-white/5 px-3.5 py-3 transition-colors last:border-b-0 hover:bg-white/[0.03] sm:gap-4 sm:px-4"
+            className="flex gap-3 border-b border-white/5 px-3.5 py-3 transition-colors last:border-b-0 hover:bg-white/3 sm:gap-4 sm:px-4"
           >
             <span className="min-w-5 pt-0.5 [font-family:var(--font-dm-mono)] text-[11px] text-white/20">
               {String(index + 1).padStart(2, "0")}
