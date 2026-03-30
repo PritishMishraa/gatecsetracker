@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import VideoAccordion from "@/components/VideoAccordion";
 import InfoTooltip from "@/components/InfoTooltip";
@@ -32,11 +32,14 @@ export default function SubjectContent({
   const [checkboxStatus, setCheckboxStatus] = useState<Record<string, boolean>>(
     {},
   );
+  const hasLoadedCheckboxStatus = useRef(false);
   const daysPerPage = studyDaysOption;
   const studyTimePerDay =
     3600 * studyTimeOption.hours + 60 * studyTimeOption.minutes;
 
   useEffect(() => {
+    hasLoadedCheckboxStatus.current = false;
+
     const savedDaysOption = localStorage.getItem("studyDaysOption");
     const savedCheckboxStatus = localStorage.getItem(
       `checkboxStatus-${subjectCode}`,
@@ -68,10 +71,16 @@ export default function SubjectContent({
           minutes: parseInt(savedStudyTimeMinuteOption, 10),
         });
       }
+
+      hasLoadedCheckboxStatus.current = true;
     });
   }, [subjectCode]);
 
   useEffect(() => {
+    if (!hasLoadedCheckboxStatus.current) {
+      return;
+    }
+
     localStorage.setItem(
       `checkboxStatus-${subjectCode}`,
       JSON.stringify(checkboxStatus),
