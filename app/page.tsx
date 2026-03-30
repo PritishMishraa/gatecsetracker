@@ -115,14 +115,14 @@ export default async function Home() {
             asChild
             size="lg"
             variant="outline"
-            className="rounded-full px-8 text-base bg-white border-border hover:bg-accent/50"
+            className="rounded-full px-8 text-base bg-card border-border hover:bg-accent/50"
           >
             <Link href="#premium">See premium</Link>
           </Button>
         </div>
 
         {/* Dashboard Preview */}
-        <div className="w-full bg-white rounded-[2rem] p-4 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-border/60">
+        <div className="w-full bg-card rounded-[2rem] p-4 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-border/60">
           <div className="bg-background rounded-[1.5rem] p-6 md:p-8 border border-border/40">
             <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
               <div>
@@ -144,7 +144,7 @@ export default async function Home() {
               {subjects.map((s) => (
                 <div
                   key={s.name}
-                  className="rounded-2xl border border-border/60 bg-white/80 p-4"
+                  className="rounded-2xl border border-border/60 bg-card/80 p-4"
                 >
                   <div className="flex items-center justify-between gap-4 mb-2">
                     <p className="font-medium">{s.name}</p>
@@ -166,7 +166,7 @@ export default async function Home() {
                 {planDays.map((d) => (
                   <div
                     key={d.day}
-                    className="rounded-2xl border border-border/50 bg-white/60 p-4"
+                    className="rounded-2xl border border-border/50 bg-card/60 p-4"
                   >
                     <span className="text-[0.65rem] font-bold uppercase tracking-widest text-muted-foreground">
                       {d.day}
@@ -182,7 +182,7 @@ export default async function Home() {
       </section>
 
       {/* ── Features ── */}
-      <section className="relative z-10 py-24 px-4 bg-white/50 border-y border-border/50">
+      <section className="relative z-10 py-24 px-4 bg-card/50 border-y border-border/50">
         <div className="max-w-6xl mx-auto">
           <div className="bg-background rounded-[3rem] p-12 md:p-24 text-center border border-border/50">
             <h2 className="text-4xl md:text-5xl font-normal tracking-tight mb-6 max-w-2xl mx-auto leading-tight">
@@ -193,7 +193,7 @@ export default async function Home() {
               one place — designed around the way GATE aspirants actually study.
             </p>
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white p-8 rounded-[2rem] text-left shadow-sm border border-border/40">
+              <div className="bg-card p-8 rounded-[2rem] text-left shadow-sm border border-border/40">
                 <div className="w-12 h-12 bg-background rounded-full mb-6 flex items-center justify-center">
                   <span className="text-xl">📊</span>
                 </div>
@@ -204,7 +204,7 @@ export default async function Home() {
                   chaos.
                 </p>
               </div>
-              <div className="bg-white p-8 rounded-[2rem] text-left shadow-sm border border-border/40">
+              <div className="bg-card p-8 rounded-[2rem] text-left shadow-sm border border-border/40">
                 <div className="w-12 h-12 bg-background rounded-full mb-6 flex items-center justify-center">
                   <span className="text-xl">📺</span>
                 </div>
@@ -242,7 +242,7 @@ export default async function Home() {
             return (
               <div
                 key={f.title}
-                className="bg-white p-8 rounded-[2rem] border border-border/40 shadow-sm"
+                className="bg-card p-8 rounded-[2rem] border border-border/40 shadow-sm"
               >
                 <div className="w-12 h-12 bg-background rounded-full mb-6 flex items-center justify-center">
                   <Icon className="size-5" />
@@ -257,7 +257,7 @@ export default async function Home() {
         </div>
 
         {/* Pricing */}
-        <div className="bg-white rounded-[2rem] p-8 md:p-12 border border-border/40 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] text-center">
+        <div className="bg-card rounded-[2rem] p-8 md:p-12 border border-border/40 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] text-center">
           <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">
             Launch pricing
           </p>
@@ -295,7 +295,7 @@ export default async function Home() {
         <h2 className="text-3xl md:text-4xl font-normal tracking-tight mb-10 text-center">
           Common questions
         </h2>
-        <div className="bg-white rounded-[2rem] border border-border/40 shadow-sm overflow-hidden">
+        <div className="bg-card rounded-[2rem] border border-border/40 shadow-sm overflow-hidden">
           <Accordion type="single" collapsible className="px-6">
             {faqs.map((item) => (
               <AccordionItem key={item.question} value={item.question}>

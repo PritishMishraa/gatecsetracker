@@ -110,6 +110,7 @@
   }
 }
 
+/* ── Light (Paper) ── */
 @layer base {
   :root {
     --background: 60 11% 96%;
@@ -144,6 +145,40 @@
   }
 }
 
+/* ── Dark ── */
+@layer base {
+  .dark {
+    --background: 220 8% 9%;
+    --foreground: 50 5% 90%;
+
+    --card: 220 8% 12%;
+    --card-foreground: 50 5% 90%;
+
+    --popover: 220 8% 12%;
+    --popover-foreground: 50 5% 90%;
+
+    --muted: 220 6% 18%;
+    --muted-foreground: 0 0% 55%;
+
+    --border: 220 6% 22%;
+    --input: 220 6% 22%;
+
+    --primary: 50 5% 90%;
+    --primary-foreground: 220 8% 9%;
+
+    --secondary: 220 6% 16%;
+    --secondary-foreground: 50 5% 90%;
+
+    --accent: 220 6% 18%;
+    --accent-foreground: 50 5% 90%;
+
+    --destructive: 0 63% 48%;
+    --destructive-foreground: 0 0% 100%;
+
+    --ring: 0 0% 36%;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -163,6 +198,7 @@
   }
 }
 
+/* ── Sidebar (light) ── */
 :root {
   --sidebar: hsl(0 0% 98%);
   --sidebar-foreground: hsl(240 5.3% 26.1%);
@@ -174,6 +210,7 @@
   --sidebar-ring: hsl(217.2 91.2% 59.8%);
 }
 
+/* ── Sidebar (dark) ── */
 .dark {
   --sidebar: hsl(240 5.9% 10%);
   --sidebar-foreground: hsl(240 4.8% 95.9%);
@@ -196,6 +233,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* ── Paper components ── */
 @layer components {
   .paper-texture {
     position: absolute;
@@ -211,6 +249,16 @@
     );
   }
 
+  .dark .paper-texture {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(255, 255, 255, 0.02),
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px,
+      transparent 24px
+    );
+  }
+
   .paper-hero-title {
     font-family: var(--font-instrument-serif), serif;
   }
@@ -218,12 +266,20 @@
   .subject-progress-strong [data-slot="progress-indicator"] {
     background: linear-gradient(90deg, #164e72, #2c7fb8);
   }
-
   .subject-progress-warm [data-slot="progress-indicator"] {
     background: linear-gradient(90deg, #c46b1f, #eb9d4d);
   }
-
   .subject-progress-calm [data-slot="progress-indicator"] {
     background: linear-gradient(90deg, #31716b, #5ba89f);
+  }
+
+  .dark .subject-progress-strong [data-slot="progress-indicator"] {
+    background: linear-gradient(90deg, #2c7fb8, #4da3d9);
+  }
+  .dark .subject-progress-warm [data-slot="progress-indicator"] {
+    background: linear-gradient(90deg, #eb9d4d, #f0b86e);
+  }
+  .dark .subject-progress-calm [data-slot="progress-indicator"] {
+    background: linear-gradient(90deg, #5ba89f, #7cc4bb);
   }
 }

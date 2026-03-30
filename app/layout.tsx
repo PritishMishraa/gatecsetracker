@@ -2,6 +2,7 @@ import "./globals.css";
 import { DM_Mono, DM_Sans, Inter } from "next/font/google";
 import localFont from "next/font/local";
 import { LayoutContent } from "@/components/LayoutContent";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -37,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <meta property="og:url" content="https://gatecsetracker.vercel.app/" />
         <meta property="og:type" content="website" />
@@ -97,9 +98,11 @@ export default function RootLayout({
           instrumentSerif.variable,
         ].join(" ")}
       >
-        <TooltipProvider>
-          <LayoutContent>{children}</LayoutContent>
-        </TooltipProvider>
+        <ThemeProvider>
+          <TooltipProvider>
+            <LayoutContent>{children}</LayoutContent>
+          </TooltipProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

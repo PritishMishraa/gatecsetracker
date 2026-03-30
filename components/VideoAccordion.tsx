@@ -36,36 +36,38 @@ export default function VideoAccordion({
   }
 
   return (
-    <div className="mx-auto py-1">
+    <div className="py-1">
       <Accordion type="single" collapsible className="w-full">
-        <AccordionItem value="item-1">
-          <AccordionTrigger>
+        <AccordionItem
+          value="item-1"
+          className="bg-card rounded-2xl border border-border/40 px-4 mb-2"
+        >
+          <AccordionTrigger className="hover:no-underline py-4">
             <div className="flex items-center w-full">
-              <h1 className="font-bold text-lg shrink-0">
-                Day - {day}{" "}
-                <span className="text-muted-foreground font-normal text-base ml-1 block">
+              <div className="shrink-0 mr-4">
+                <p className="font-semibold text-base text-foreground">
+                  Day {day}
+                </p>
+                <p className="text-sm text-muted-foreground font-normal">
                   {videos} videos
-                </span>
-              </h1>
+                </p>
+              </div>
               <div className="grow mx-4">
-                <div className="flex justify-center">
-                  <Progress
-                    value={calculateProgress()}
-                    className="w-full md:w-96"
-                  />
-                </div>
+                <Progress
+                  value={calculateProgress()}
+                  className="w-full md:w-96 h-1.5 bg-muted/50"
+                />
               </div>
             </div>
           </AccordionTrigger>
-          <AccordionContent>
+          <AccordionContent className="space-y-3 pb-4">
             {videosForDay.map((video) => (
-              <div key={video.index} className="mb-4">
-                <VideoCard
-                  video={video}
-                  checkboxStatus={checkboxStatus}
-                  setCheckboxStatus={setCheckboxStatus}
-                />
-              </div>
+              <VideoCard
+                key={video.index}
+                video={video}
+                checkboxStatus={checkboxStatus}
+                setCheckboxStatus={setCheckboxStatus}
+              />
             ))}
           </AccordionContent>
         </AccordionItem>

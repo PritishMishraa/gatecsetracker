@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="relative z-10 bg-[#1A1A1A] text-white pt-24 pb-12 px-8 rounded-t-[3rem] mt-12">
+    <footer className="relative z-10 bg-[#1A1A1A] text-white pt-24 pb-12 px-8 rounded-t-[3rem] mt-12 border-t border-transparent dark:border-white/5">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-24">
           <div>
@@ -26,7 +26,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="#premium"
+                  href="/#premium"
                   className="hover:text-gray-300 transition-colors"
                 >
                   Premium

@@ -56,31 +56,24 @@ export default function SubjectContent({
       if (savedStudySpeedOption) {
         setStudySpeedOption(parseFloat(savedStudySpeedOption));
       }
-
       if (savedDaysOption) {
         setDaysOption(parseInt(savedDaysOption, 10));
       }
-
       if (savedCheckboxStatus) {
         setCheckboxStatus(JSON.parse(savedCheckboxStatus));
       }
-
       if (savedStudyTimeHourOption && savedStudyTimeMinuteOption) {
         setStudyTimeOption({
           hours: parseInt(savedStudyTimeHourOption, 10),
           minutes: parseInt(savedStudyTimeMinuteOption, 10),
         });
       }
-
       hasLoadedCheckboxStatus.current = true;
     });
   }, [subjectCode]);
 
   useEffect(() => {
-    if (!hasLoadedCheckboxStatus.current) {
-      return;
-    }
-
+    if (!hasLoadedCheckboxStatus.current) return;
     localStorage.setItem(
       `checkboxStatus-${subjectCode}`,
       JSON.stringify(checkboxStatus),
@@ -140,10 +133,7 @@ export default function SubjectContent({
     localStorage.setItem("savedStudyTimeHourOption", hours.toString());
     localStorage.setItem("studyTimeMinuteOption", minutes.toString());
     setCurrentPage(1);
-    setStudyTimeOption({
-      hours,
-      minutes,
-    });
+    setStudyTimeOption({ hours, minutes });
   };
 
   const handleSpeedOption = (option: number) => {
@@ -152,81 +142,104 @@ export default function SubjectContent({
   };
 
   return (
-    <div className="container">
-      <div className="mt-12 w-full rounded-3xl border bg-primary-foreground px-4 py-12 md:px-8">
-        <h1 className="mb-4 text-4xl font-bold md:text-6xl">{subject}</h1>
-        <p className="max-w-fit rounded-2xl bg-secondary px-4 py-2 text-lg text-white/60 md:text-2xl">
-          Total Days Left: {totalDaysLeft}
-        </p>
-        <p className="mt-2 flex max-w-fit items-center gap-2 rounded-2xl px-4 py-2 text-md text-white/60 md:text-xl">
-          Total Number of Days: {totalDays}{" "}
-          <InfoTooltip totalDuration={convertSecondsToTime(totalDuration)} />
-        </p>
-      </div>
+    <div className="relative overflow-clip">
+      <div className="paper-texture" />
+      <div className="relative z-10 container max-w-5xl mx-auto py-12 px-4">
+        {/* Header */}
+        <div className="bg-card rounded-[2rem] border border-border/40 p-8 md:p-12 shadow-sm mb-8">
+          <h1 className="paper-hero-title text-4xl md:text-5xl tracking-tight mb-4">
+            {subject}
+          </h1>
+          <div className="flex flex-wrap gap-3">
+            <span className="text-sm bg-background rounded-full px-4 py-2 border border-border/50 text-muted-foreground">
+              Days Left: {totalDaysLeft}
+            </span>
+            <span className="text-sm bg-background rounded-full px-4 py-2 border border-border/50 text-muted-foreground inline-flex items-center gap-2">
+              Total Days: {totalDays}
+              <InfoTooltip
+                totalDuration={convertSecondsToTime(totalDuration)}
+              />
+            </span>
+          </div>
+        </div>
 
-      <div className="mt-4 flex flex-col items-center justify-center gap-4 md:flex-row">
-        <StudyTimeHourCombobox
-          studyTimeOption={studyTimeOption}
-          handleStudyTimeOption={handleStudyTimeOption}
-        />
-        <StudyTimeMinuteCombobox
-          studyTimeOption={studyTimeOption}
-          handleStudyTimeOption={handleStudyTimeOption}
-        />
-        <SpeedCombobox
-          speedOption={studySpeedOption}
-          handleSpeedOption={handleSpeedOption}
-        />
-      </div>
+        {/* Controls */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+          <StudyTimeHourCombobox
+            studyTimeOption={studyTimeOption}
+            handleStudyTimeOption={handleStudyTimeOption}
+          />
+          <StudyTimeMinuteCombobox
+            studyTimeOption={studyTimeOption}
+            handleStudyTimeOption={handleStudyTimeOption}
+          />
+          <SpeedCombobox
+            speedOption={studySpeedOption}
+            handleSpeedOption={handleSpeedOption}
+          />
+        </div>
 
-      {groupedVideos.slice(startIndex, endIndex).map((videosForDay, index) => (
-        <VideoAccordion
-          key={index}
-          day={startIndex + index + 1}
-          videos={videosForDay.length}
-          videosForDay={videosForDay}
-          checkboxStatus={checkboxStatus}
-          setCheckboxStatus={setCheckboxStatus}
-        />
-      ))}
+        {/* Video Accordions */}
+        {groupedVideos
+          .slice(startIndex, endIndex)
+          .map((videosForDay, index) => (
+            <VideoAccordion
+              key={index}
+              day={startIndex + index + 1}
+              videos={videosForDay.length}
+              videosForDay={videosForDay}
+              checkboxStatus={checkboxStatus}
+              setCheckboxStatus={setCheckboxStatus}
+            />
+          ))}
 
-      <div className="mt-4 flex flex-col items-center justify-between gap-4 md:flex-row">
-        <StudyDaysCombobox
-          studyDaysOption={studyDaysOption}
-          handleStudyDaysOption={handleStudyDaysOption}
-        />
-        <div className="flex justify-center text-center">
-          <Button
-            className="mx-1 rounded bg-gray-200 px-3 py-1 text-gray-800 hover:bg-gray-300"
-            disabled={currentPage === 1}
-            onClick={() => handlePageChange(1)}
-          >
-            First
-          </Button>
-          <Button
-            className="mx-1 rounded bg-gray-200 px-3 py-1 text-gray-800 hover:bg-gray-300"
-            disabled={currentPage === 1}
-            onClick={() => handlePageChange(currentPage - 1)}
-          >
-            Prev
-          </Button>
-          <Button className="mx-1 rounded bg-blue-500 px-3 py-1 text-white hover:bg-blue-500">
-            {currentPage}
-          </Button>
-          <Button
-            className="mx-1 rounded bg-gray-200 px-3 py-1 text-gray-800 hover:bg-gray-300"
-            disabled={currentPage === totalPages}
-            onClick={() => handlePageChange(currentPage + 1)}
-          >
-            Next
-          </Button>
-          <Button
-            className="mx-1 rounded bg-gray-200 px-3 py-1 text-gray-800 hover:bg-gray-300"
-            disabled={currentPage === totalPages}
-            onClick={() => handlePageChange(totalPages)}
-          >
-            Last
-          </Button>
+        {/* Pagination */}
+        <div className="flex flex-wrap items-center justify-between gap-4 mt-8">
+          <StudyDaysCombobox
+            studyDaysOption={studyDaysOption}
+            handleStudyDaysOption={handleStudyDaysOption}
+          />
+          <div className="flex gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              className="rounded-full"
+              disabled={currentPage === 1}
+              onClick={() => handlePageChange(1)}
+            >
+              First
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              className="rounded-full"
+              disabled={currentPage === 1}
+              onClick={() => handlePageChange(currentPage - 1)}
+            >
+              Prev
+            </Button>
+            <Button size="sm" className="rounded-full">
+              {currentPage}
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              className="rounded-full"
+              disabled={currentPage === totalPages}
+              onClick={() => handlePageChange(currentPage + 1)}
+            >
+              Next
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              className="rounded-full"
+              disabled={currentPage === totalPages}
+              onClick={() => handlePageChange(totalPages)}
+            >
+              Last
+            </Button>
+          </div>
         </div>
       </div>
     </div>

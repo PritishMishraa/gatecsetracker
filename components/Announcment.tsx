@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Announcment = () => {
   return (
-    <div className="border-b border-border/50 bg-white/80 backdrop-blur-sm">
+    <div className="border-b border-border/50 bg-card/80 backdrop-blur-sm">
       <div className="container flex text-sm leading-6">
         <Link
           href="/new"

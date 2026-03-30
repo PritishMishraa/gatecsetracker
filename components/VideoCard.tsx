@@ -12,12 +12,9 @@ function formatTime(timeString: string): string {
   const parts = timeString.split(":");
   const formattedParts = parts.map((part) => {
     part = part.trim();
-    if (part.length === 1) {
-      return `0${part}`;
-    }
+    if (part.length === 1) return `0${part}`;
     return part;
   });
-
   return formattedParts.join(":");
 }
 
@@ -43,30 +40,34 @@ export default function VideoCard({
 
   return (
     <div
-      className={`flex border rounded-lg p-4 ${
-        isChecked ? "bg-green-400/60" : ""
+      className={`flex rounded-2xl border p-4 transition-colors ${
+        isChecked
+          ? "bg-emerald-50 border-emerald-200/60 dark:bg-emerald-900/15 dark:border-emerald-500/20"
+          : "bg-card border-border/60"
       }`}
     >
-      <div className="flex w-full items-center justify-between">
+      <div className="flex w-full items-center justify-between gap-2">
         <a href={video.videoLink} target="_blank" rel="noopener noreferrer">
           <Image
             src={video.thumbnailUrl}
             alt={video.videoTitle}
             width={100}
             height={56}
-            className="h-14 max-w-fit rounded-lg"
+            className="h-14 max-w-fit rounded-xl"
           />
         </a>
         <a
           href={video.videoLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-md font-medium grow truncate hover:underline ml-2"
+          className="text-sm font-medium grow truncate hover:underline ml-2 text-foreground"
         >
           {capitalizeFirstLetter(video.videoTitle)}
         </a>
-        <div className="flex items-center gap-2 ml-1">
-          <p className="text-md text-white/60">{formatTime(video.videoTime)}</p>
+        <div className="flex items-center gap-2 ml-1 shrink-0">
+          <p className="text-sm text-muted-foreground">
+            {formatTime(video.videoTime)}
+          </p>
           <Checkbox
             checked={isChecked}
             onCheckedChange={() => handleCheckboxChange(video.index)}
