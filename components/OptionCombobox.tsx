@@ -62,7 +62,7 @@ export function StudyTimeHourCombobox({
                         "mr-2 h-4 w-4",
                         studyTimeOption.hours === option
                           ? "opacity-100"
-                          : "opacity-0"
+                          : "opacity-0",
                       )}
                     />
                     {option} Hours
@@ -120,7 +120,7 @@ export function StudyTimeMinuteCombobox({
                         "mr-2 h-4 w-4",
                         studyTimeOption.minutes === option
                           ? "opacity-100"
-                          : "opacity-0"
+                          : "opacity-0",
                       )}
                     />
                     {option} Minutes
@@ -171,7 +171,7 @@ export function StudyDaysCombobox({
                 <Check
                   className={cn(
                     "mr-2 h-4 w-4",
-                    studyDaysOption === option ? "opacity-100" : "opacity-0"
+                    studyDaysOption === option ? "opacity-100" : "opacity-0",
                   )}
                 />
                 {option} / page
@@ -220,7 +220,7 @@ export function SpeedCombobox({
                 <Check
                   className={cn(
                     "mr-2 h-4 w-4",
-                    speedOption === option ? "opacity-100" : "opacity-0"
+                    speedOption === option ? "opacity-100" : "opacity-0",
                   )}
                 />
                 {option}x

@@ -54,7 +54,7 @@ export default function VideoCard({
             alt={video.videoTitle}
             width={100}
             height={56}
-            className="h-[56px] max-w-fit rounded-lg"
+            className="h-14 max-w-fit rounded-lg"
           />
         </a>
         <a

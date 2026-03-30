@@ -4,11 +4,7 @@ import { usePathname } from "next/navigation";
 import Footer from "@/components/Footer";
 import Announcment from "@/components/Announcment";
 
-export function LayoutContent({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function LayoutContent({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isNewPage = pathname?.startsWith("/new");
 

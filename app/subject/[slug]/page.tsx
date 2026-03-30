@@ -27,7 +27,7 @@ export default async function Page({
 }) {
   const { slug } = await params;
   const subjectData = subjects.find(
-    (s: (typeof subjects)[number]) => s.slug === slug
+    (s: (typeof subjects)[number]) => s.slug === slug,
   );
 
   if (!subjectData) {

@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const WelcomeBox = () => {
   return (
-    <div className="relative isolate overflow-hidden bg-primary-foreground border px-6 py-24 text-center rounded-3xl sm:px-16 w-full my-auto h-[500px] flex flex-col items-center justify-center">
+    <div className="relative isolate flex h-125 w-full flex-col items-center justify-center overflow-hidden rounded-3xl border bg-primary-foreground px-6 py-24 text-center my-auto sm:px-16">
       <h2>
         <Balancer className="mx-auto max-w-2xl text-4xl font-bold tracking-tight sm:text-6xl">
           Welcome to GATE CSE Tracker
