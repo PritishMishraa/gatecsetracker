@@ -161,10 +161,10 @@ function RegistrationForm({
       className="mx-auto w-full max-w-[420px]"
     >
       <div className="mb-7 sm:mb-8">
-        <h2 className="mb-2 [font-family:var(--font-instrument-serif)] text-[24px] leading-[1.15] tracking-[-0.02em] text-[#0f1623] [text-wrap:balance] sm:text-[26px] sm:leading-[1.25]">
+        <h2 className="mb-2 [font-family:var(--font-instrument-serif)] text-[24px] leading-[1.15] tracking-[-0.02em] text-[#0f1623] text-balance sm:text-[26px] sm:leading-tight">
           Register for early access
         </h2>
-        <p className="text-[13.5px] leading-6 text-[#6b7583] [text-wrap:pretty]">
+        <p className="text-[13.5px] leading-6 text-[#6b7583] text-pretty">
           Takes 30 seconds. Early birds get an exclusive discount at launch.
         </p>
       </div>
@@ -186,7 +186,7 @@ function RegistrationForm({
           value={email}
           onChange={(event) => onEmailChange(event.target.value)}
           className={[
-            "min-h-11 w-full rounded-xl border px-3 py-2.5 text-[13.5px] outline-none transition-[border-color,box-shadow]",
+            "min-h-11 w-full rounded-xl border px-3 py-2.5 text-[13.5px] outline-hidden transition-[border-color,box-shadow]",
             emailError
               ? "border-red-500 shadow-[0_0_0_3px_rgba(239,68,68,0.1)]"
               : "border-[#e4e7ec] focus:border-blue-600 focus:shadow-[0_0_0_3px_rgba(37,99,235,0.1)]",
@@ -205,7 +205,7 @@ function RegistrationForm({
           id="gate-year"
           value={gateYear}
           onChange={(event) => onGateYearChange(event.target.value)}
-          className="min-h-11 w-full rounded-xl border border-[#e4e7ec] bg-white px-3 py-2.5 pr-9 text-[13.5px] text-[#374151] outline-none transition-[border-color,box-shadow] focus:border-blue-600 focus:shadow-[0_0_0_3px_rgba(37,99,235,0.1)]"
+          className="min-h-11 w-full rounded-xl border border-[#e4e7ec] bg-white px-3 py-2.5 pr-9 text-[13.5px] text-[#374151] outline-hidden transition-[border-color,box-shadow] focus:border-blue-600 focus:shadow-[0_0_0_3px_rgba(37,99,235,0.1)]"
         >
           <option value="">Select your target year</option>
           {GATE_YEAR_OPTIONS.map((option) => (
@@ -237,7 +237,7 @@ function RegistrationForm({
           placeholder="e.g. Arjun"
           value={name}
           onChange={(event) => onNameChange(event.target.value)}
-          className="min-h-11 w-full rounded-xl border border-[#e4e7ec] px-3 py-2.5 text-[13.5px] outline-none transition-[border-color,box-shadow] focus:border-blue-600 focus:shadow-[0_0_0_3px_rgba(37,99,235,0.1)]"
+          className="min-h-11 w-full rounded-xl border border-[#e4e7ec] px-3 py-2.5 text-[13.5px] outline-hidden transition-[border-color,box-shadow] focus:border-blue-600 focus:shadow-[0_0_0_3px_rgba(37,99,235,0.1)]"
         />
       </div>
       <div className="mb-5">
@@ -253,7 +253,7 @@ function RegistrationForm({
           placeholder="e.g. I wish I could mark specific videos as done without losing progress across devices..."
           value={feedback}
           onChange={(event) => onFeedbackChange(event.target.value)}
-          className="min-h-24 w-full resize-y rounded-xl border border-[#e4e7ec] px-3 py-2.5 text-[13.5px] leading-6 outline-none transition-[border-color,box-shadow] focus:border-blue-600 focus:shadow-[0_0_0_3px_rgba(37,99,235,0.1)]"
+          className="min-h-24 w-full resize-y rounded-xl border border-[#e4e7ec] px-3 py-2.5 text-[13.5px] leading-6 outline-hidden transition-[border-color,box-shadow] focus:border-blue-600 focus:shadow-[0_0_0_3px_rgba(37,99,235,0.1)]"
         />
       </div>
 

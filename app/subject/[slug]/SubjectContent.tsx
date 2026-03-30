@@ -49,30 +49,27 @@ export default function SubjectContent({
     );
     const savedStudySpeedOption = localStorage.getItem("studySpeedOption");
 
-    if (savedStudySpeedOption) {
-      setStudySpeedOption(parseFloat(savedStudySpeedOption));
-    }
+    queueMicrotask(() => {
+      if (savedStudySpeedOption) {
+        setStudySpeedOption(parseFloat(savedStudySpeedOption));
+      }
 
-    if (savedDaysOption) {
-      setDaysOption(parseInt(savedDaysOption, 10));
-    }
+      if (savedDaysOption) {
+        setDaysOption(parseInt(savedDaysOption, 10));
+      }
 
-    if (savedCheckboxStatus) {
-      setCheckboxStatus(JSON.parse(savedCheckboxStatus));
-    }
+      if (savedCheckboxStatus) {
+        setCheckboxStatus(JSON.parse(savedCheckboxStatus));
+      }
 
-    if (savedStudyTimeHourOption && savedStudyTimeMinuteOption) {
-      setStudyTimeOption({
-        hours: parseInt(savedStudyTimeHourOption, 10),
-        minutes: parseInt(savedStudyTimeMinuteOption, 10),
-      });
-    }
+      if (savedStudyTimeHourOption && savedStudyTimeMinuteOption) {
+        setStudyTimeOption({
+          hours: parseInt(savedStudyTimeHourOption, 10),
+          minutes: parseInt(savedStudyTimeMinuteOption, 10),
+        });
+      }
+    });
   }, [subjectCode]);
-
-  useEffect(() => {
-    setCurrentPage(1);
-    localStorage.setItem("studyDaysOption", studyDaysOption.toString());
-  }, [studyDaysOption]);
 
   useEffect(() => {
     localStorage.setItem(
@@ -80,18 +77,6 @@ export default function SubjectContent({
       JSON.stringify(checkboxStatus)
     );
   }, [checkboxStatus, subjectCode]);
-
-  useEffect(() => {
-    setCurrentPage(1);
-    localStorage.setItem(
-      "savedStudyTimeHourOption",
-      studyTimeOption.hours.toString()
-    );
-    localStorage.setItem(
-      "studyTimeMinuteOption",
-      studyTimeOption.minutes.toString()
-    );
-  }, [studyTimeOption]);
 
   const totalVideos = initialData.length;
   const totalDuration = initialData.reduce(
@@ -133,6 +118,8 @@ export default function SubjectContent({
   const endIndex = startIndex + daysPerPage;
 
   const handleStudyDaysOption = (option: number) => {
+    localStorage.setItem("studyDaysOption", option.toString());
+    setCurrentPage(1);
     setDaysOption(option);
   };
 
@@ -141,6 +128,9 @@ export default function SubjectContent({
   };
 
   const handleStudyTimeOption = (hours: number, minutes: number) => {
+    localStorage.setItem("savedStudyTimeHourOption", hours.toString());
+    localStorage.setItem("studyTimeMinuteOption", minutes.toString());
+    setCurrentPage(1);
     setStudyTimeOption({
       hours,
       minutes,

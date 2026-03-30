@@ -66,17 +66,17 @@ function CardPattern({ mouseX, mouseY, ...gridProps }: any) {
 
   return (
     <div className="pointer-events-none">
-      <div className="absolute inset-0 rounded-2xl transition duration-300 [mask-image:linear-gradient(white,transparent)] group-hover:opacity-50">
+      <div className="absolute inset-0 rounded-2xl transition duration-300 mask-[linear-gradient(white,transparent)] group-hover:opacity-50">
         <GridPattern
           width={72}
           height={56}
           x="50%"
-          className="absolute inset-x-0 inset-y-[-30%] h-[160%] w-full skew-y-[-18deg] fill-white/[0.02] stroke-white/5"
+          className="absolute inset-x-0 inset-y-[-30%] h-[160%] w-full skew-y-[-18deg] fill-white/2 stroke-white/5"
           {...gridProps}
         />
       </div>
       {/* <motion.div
-        className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#2b2b2b] to-[#575757] opacity-0 transition duration-300 group-hover:opacity-100"
+        className="absolute inset-0 rounded-2xl bg-linear-to-r from-[#2b2b2b] to-[#575757] opacity-0 transition duration-300 group-hover:opacity-100"
         style={style}
       /> */}
       <motion.div

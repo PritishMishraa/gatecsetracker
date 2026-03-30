@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import { Checkbox } from "@/components/ui/checkbox";
 import { Dispatch, SetStateAction } from "react";
 
@@ -47,17 +49,19 @@ export default function VideoCard({
     >
       <div className="flex w-full items-center justify-between">
         <a href={video.videoLink} target="_blank" rel="noopener noreferrer">
-          <img
+          <Image
             src={video.thumbnailUrl}
             alt={video.videoTitle}
-            className="rounded-lg max-w-fit h-[56px]"
+            width={100}
+            height={56}
+            className="h-[56px] max-w-fit rounded-lg"
           />
         </a>
         <a
           href={video.videoLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-md font-medium flex-grow truncate hover:underline ml-2"
+          className="text-md font-medium grow truncate hover:underline ml-2"
         >
           {capitalizeFirstLetter(video.videoTitle)}
         </a>

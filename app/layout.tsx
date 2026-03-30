@@ -2,6 +2,7 @@ import "./globals.css";
 import { DM_Mono, DM_Sans, Inter } from "next/font/google";
 import localFont from "next/font/local";
 import { LayoutContent } from "@/components/LayoutContent";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const inter = Inter({ subsets: ["latin"] });
 const dmSans = DM_Sans({
@@ -96,7 +97,9 @@ export default function RootLayout({
           instrumentSerif.variable,
         ].join(" ")}
       >
-        <LayoutContent>{children}</LayoutContent>
+        <TooltipProvider>
+          <LayoutContent>{children}</LayoutContent>
+        </TooltipProvider>
       </body>
     </html>
   );
