@@ -2,7 +2,7 @@ import { EARLY_ACCESS_FEATURES } from "./constants";
 
 export function EarlyAccessHero() {
   return (
-    <section className="hidden flex-col justify-center md:flex md:px-14 md:py-[72px]">
+    <section className="hidden flex-col justify-center md:flex md:px-14 md:py-18">
       <div className="mb-6 inline-flex items-center gap-2 [font-family:var(--font-dm-mono)] text-[10.5px] uppercase tracking-[0.12em] text-blue-400">
         <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
         Coming back. Better.
@@ -16,7 +16,7 @@ export function EarlyAccessHero() {
         </span>
       </h1>
 
-      <p className="mb-10 max-w-120 text-[14px] leading-7 text-white/55 text-pretty sm:text-[15px] sm:leading-8 md:mb-12 md:max-w-[420px]">
+      <p className="mb-10 max-w-120 text-[14px] leading-7 text-white/55 text-pretty sm:text-[15px] sm:leading-8 md:mb-12 md:max-w-105">
         GATE CSE Tracker is being rebuilt from scratch{" "}
         <strong className="font-medium text-white/80">
           with cleaner UI, curated resources, real progress tracking,
@@ -29,7 +29,7 @@ export function EarlyAccessHero() {
         What&apos;s coming
       </p>
 
-      <div className="max-w-[420px] overflow-hidden rounded-[18px] border border-white/10 bg-white/2 shadow-[0_22px_60px_rgba(0,0,0,0.18)]">
+      <div className="max-w-105 overflow-hidden rounded-[18px] border border-white/10 bg-white/2 shadow-[0_22px_60px_rgba(0,0,0,0.18)]">
         {EARLY_ACCESS_FEATURES.map((feature, index) => (
           <div
             key={feature}

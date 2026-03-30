@@ -155,11 +155,7 @@ function RegistrationForm({
   onSubmit,
 }: RegistrationFormProps) {
   return (
-    <form
-      noValidate
-      onSubmit={onSubmit}
-      className="mx-auto w-full max-w-[420px]"
-    >
+    <form noValidate onSubmit={onSubmit} className="mx-auto w-full max-w-105">
       <div className="mb-7 sm:mb-8">
         <h2 className="mb-2 [font-family:var(--font-instrument-serif)] text-[24px] leading-[1.15] tracking-[-0.02em] text-[#0f1623] text-balance sm:text-[26px] sm:leading-tight">
           Register for early access
@@ -280,11 +276,11 @@ function RegistrationForm({
 
 function EarlyAccessSuccess() {
   return (
-    <div className="mx-auto max-w-[420px] py-5 text-center">
-      <div className="mx-auto mb-5 flex h-[52px] w-[52px] items-center justify-center rounded-full border border-blue-600/15 bg-blue-600/5">
+    <div className="mx-auto max-w-105 py-5 text-center">
+      <div className="mx-auto mb-5 flex h-13 w-13 items-center justify-center rounded-full border border-blue-600/15 bg-blue-600/5">
         <svg
           viewBox="0 0 24 24"
-          className="h-[22px] w-[22px] stroke-blue-600"
+          className="h-5.5 w-5.5 stroke-blue-600"
           fill="none"
           strokeWidth="2.5"
           strokeLinecap="round"

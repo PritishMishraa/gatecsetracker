@@ -30,7 +30,7 @@ export default function SubjectContent({
   const [studySpeedOption, setStudySpeedOption] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
   const [checkboxStatus, setCheckboxStatus] = useState<Record<string, boolean>>(
-    {}
+    {},
   );
   const daysPerPage = studyDaysOption;
   const studyTimePerDay =
@@ -39,13 +39,13 @@ export default function SubjectContent({
   useEffect(() => {
     const savedDaysOption = localStorage.getItem("studyDaysOption");
     const savedCheckboxStatus = localStorage.getItem(
-      `checkboxStatus-${subjectCode}`
+      `checkboxStatus-${subjectCode}`,
     );
     const savedStudyTimeHourOption = localStorage.getItem(
-      "savedStudyTimeHourOption"
+      "savedStudyTimeHourOption",
     );
     const savedStudyTimeMinuteOption = localStorage.getItem(
-      "studyTimeMinuteOption"
+      "studyTimeMinuteOption",
     );
     const savedStudySpeedOption = localStorage.getItem("studySpeedOption");
 
@@ -74,14 +74,14 @@ export default function SubjectContent({
   useEffect(() => {
     localStorage.setItem(
       `checkboxStatus-${subjectCode}`,
-      JSON.stringify(checkboxStatus)
+      JSON.stringify(checkboxStatus),
     );
   }, [checkboxStatus, subjectCode]);
 
   const totalVideos = initialData.length;
   const totalDuration = initialData.reduce(
     (acc, video) => acc + video.videoDurationInSeconds,
-    0
+    0,
   );
 
   const groupedVideos: Video[][] = [];
@@ -107,7 +107,7 @@ export default function SubjectContent({
   }
 
   const filteredGroupedVideos = groupedVideos.filter((day) =>
-    day.some((video) => !checkboxStatus[video.index])
+    day.some((video) => !checkboxStatus[video.index]),
   );
 
   const totalDays = groupedVideos.length;

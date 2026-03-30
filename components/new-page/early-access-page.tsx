@@ -18,7 +18,7 @@ export function EarlyAccessPage({ initialEmail }: EarlyAccessPageProps) {
           <EarlyAccessHero />
 
           <aside className="order-first flex flex-col justify-center border-b border-white/10 bg-white px-5 py-8 text-[#0f1623] shadow-[0_18px_40px_rgba(15,22,35,0.28)] sm:px-7 sm:py-10 md:order-0 md:border-b-0 md:border-l md:border-t-0 md:px-11 md:py-14 md:shadow-none">
-            <div className="mx-auto w-full max-w-[440px] md:max-w-none">
+            <div className="mx-auto w-full max-w-110 md:max-w-none">
               <EarlyAccessForm initialEmail={initialEmail} />
             </div>
           </aside>
