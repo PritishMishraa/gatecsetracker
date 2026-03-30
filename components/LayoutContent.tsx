@@ -12,12 +12,7 @@ export function LayoutContent({ children }: { children: React.ReactNode }) {
     <div className="flex min-h-screen flex-col">
       {!isNewPage && <Announcment />}
       <div className="flex-1">{children}</div>
-      {!isNewPage && (
-        <>
-          <div className="h-px bg-secondary w-full mt-20"></div>
-          <Footer />
-        </>
-      )}
+      {!isNewPage && <Footer />}
     </div>
   );
 }

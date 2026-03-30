@@ -100,14 +100,6 @@
   }
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
   *,
   ::after,
@@ -120,36 +112,35 @@
 
 @layer base {
   :root {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
+    --background: 60 11% 96%;
+    --foreground: 0 0% 10%;
 
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
 
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
 
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
+    --muted: 40 8% 91%;
+    --muted-foreground: 0 0% 40%;
 
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
+    --primary: 0 0% 10%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 40 8% 94%;
+    --secondary-foreground: 0 0% 10%;
 
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 40 8% 91%;
+    --accent-foreground: 0 0% 10%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 85.7% 97.3%;
+    --destructive: 0 63% 48%;
+    --destructive-foreground: 0 0% 100%;
 
-    --ring: 0 0% 14.9%;
-
-    --radius: 0.5rem;
+    --ring: 0 0% 64%;
+    --radius: 1rem;
   }
 }
 
@@ -157,14 +148,20 @@
   * {
     @apply border-border;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-dm-sans), sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-dm-sans), sans-serif;
   }
 }
-
-/*
-  ---break---
-*/
 
 :root {
   --sidebar: hsl(0 0% 98%);
@@ -177,10 +174,6 @@
   --sidebar-ring: hsl(217.2 91.2% 59.8%);
 }
 
-/*
-  ---break---
-*/
-
 .dark {
   --sidebar: hsl(240 5.9% 10%);
   --sidebar-foreground: hsl(240 4.8% 95.9%);
@@ -192,10 +185,6 @@
   --sidebar-ring: hsl(217.2 91.2% 59.8%);
 }
 
-/*
-  ---break---
-*/
-
 @theme inline {
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
@@ -205,4 +194,36 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer components {
+  .paper-texture {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(0, 0, 0, 0.025),
+      rgba(0, 0, 0, 0.025) 1px,
+      transparent 1px,
+      transparent 24px
+    );
+  }
+
+  .paper-hero-title {
+    font-family: var(--font-instrument-serif), serif;
+  }
+
+  .subject-progress-strong [data-slot="progress-indicator"] {
+    background: linear-gradient(90deg, #164e72, #2c7fb8);
+  }
+
+  .subject-progress-warm [data-slot="progress-indicator"] {
+    background: linear-gradient(90deg, #c46b1f, #eb9d4d);
+  }
+
+  .subject-progress-calm [data-slot="progress-indicator"] {
+    background: linear-gradient(90deg, #31716b, #5ba89f);
+  }
 }
