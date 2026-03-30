@@ -19,10 +19,10 @@ const nextConfig = {
   rewrites: async () => {
     return [
       {
-        source: '/request',
-        destination: '/request/index.html',
+        source: "/request",
+        destination: "/request/index.html",
       },
-    ]
+    ];
   },
   async redirects() {
     return [
@@ -151,7 +151,6 @@ const nextConfig = {
         destination: "/subject/compiler-design",
         permanent: true,
       },
-
     ];
   },
 };
