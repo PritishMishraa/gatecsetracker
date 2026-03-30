@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.2",
@@ -27,28 +27,27 @@
     "cmdk": "^0.2.0",
     "dotenv": "^17.3.1",
     "drizzle-orm": "^0.45.1",
-    "framer-motion": "^10.15.0",
-    "lucide-react": "^0.221.0",
-    "next": "15.5.14",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "framer-motion": "^12.38.0",
+    "lucide-react": "^1.7.0",
+    "next": "16.2.1",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
     "react-wrap-balancer": "^1.0.0",
     "tailwind-merge": "^1.13.2"
   },
   "devDependencies": {
-    "@types/node": "20.2.3",
-    "@types/react": "18.2.6",
-    "@types/react-dom": "18.2.4",
-    "@typescript-eslint/parser": "8.57.2",
+    "@eslint/eslintrc": "3.3.5",
+    "@types/node": "25.5.0",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
     "autoprefixer": "10.4.27",
     "drizzle-kit": "^0.31.9",
-    "eslint": "8.57.1",
-    "eslint-config-next": "15.5.14",
-    "mini-css-extract-plugin": "^2.9.1",
+    "eslint": "9.39.4",
+    "eslint-config-next": "16.2.1",
     "postcss": "8.5.8",
     "tailwindcss": "3.3.2",
     "tailwindcss-animate": "^1.0.6",
     "tsx": "^4.21.0",
-    "typescript": "5.0.4"
+    "typescript": "5.9.3"
   }
 }
