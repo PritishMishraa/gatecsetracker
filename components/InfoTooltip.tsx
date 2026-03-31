@@ -13,7 +13,7 @@ function InfoTooltip({ totalDuration }: { totalDuration: string }) {
         <TooltipTrigger asChild>
           <Info className="inline h-4 w-4 cursor-pointer" />
         </TooltipTrigger>
-        <TooltipContent>
+        <TooltipContent side="bottom">
           <p>{totalDuration}</p>
         </TooltipContent>
       </Tooltip>
