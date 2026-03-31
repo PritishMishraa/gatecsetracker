@@ -3,7 +3,8 @@ import { ThemeToggle } from "./ThemeToggle";
 
 export function Navbar() {
   return (
-    <nav className="relative z-20 flex items-center justify-between px-8 py-5 max-w-7xl mx-auto">
+    <nav className="relative z-20 w-full">
+      <div className="flex items-center justify-between px-8 py-5 max-w-7xl mx-auto w-full">
       <Link
         href="/"
         className="text-xl font-medium tracking-tight text-foreground"
@@ -32,6 +33,7 @@ export function Navbar() {
         >
           Get Started
         </Link>
+      </div>
       </div>
     </nav>
   );
