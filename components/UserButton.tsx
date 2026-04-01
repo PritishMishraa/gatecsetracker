@@ -1,7 +1,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useSession, signOut } from "@/lib/auth-client";
+import { signOut } from "@/lib/auth-client";
+import { useAuthSession } from "@/components/SessionProvider";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -14,7 +15,7 @@ import {
 import { LogOut } from "lucide-react";
 
 export function UserButton() {
-  const { data: session, isPending } = useSession();
+  const { session, isPending } = useAuthSession();
   const router = useRouter();
 
   if (isPending) {

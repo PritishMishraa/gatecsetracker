@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useSession } from "@/lib/auth-client";
+import { useAuthSession } from "@/components/SessionProvider";
 import { ThemeToggle } from "./ThemeToggle";
 import { UserButton } from "./UserButton";
 
 export function Navbar() {
-  const { data: session } = useSession();
+  const { session, isPending } = useAuthSession();
 
   return (
     <nav className="relative z-20 w-full">
@@ -33,7 +33,9 @@ export function Navbar() {
         </div>
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          {session ? (
+          {isPending ? (
+            <div className="bg-muted size-8 animate-pulse rounded-full" />
+          ) : session ? (
             <UserButton />
           ) : (
             <Link

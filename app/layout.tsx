@@ -2,8 +2,10 @@ import "./globals.css";
 import { DM_Mono, DM_Sans, Inter } from "next/font/google";
 import localFont from "next/font/local";
 import { LayoutContent } from "@/components/LayoutContent";
+import { SessionProvider } from "@/components/SessionProvider";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { getServerSession } from "@/lib/session";
 
 const inter = Inter({ subsets: ["latin"] });
 const dmSans = DM_Sans({
@@ -32,11 +34,12 @@ export const metadata = {
   description: "Track and Achieve Success in the GATE CSE Exam",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getServerSession();
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -99,9 +102,11 @@ export default function RootLayout({
         ].join(" ")}
       >
         <ThemeProvider>
-          <TooltipProvider>
-            <LayoutContent>{children}</LayoutContent>
-          </TooltipProvider>
+          <SessionProvider initialSession={session}>
+            <TooltipProvider>
+              <LayoutContent>{children}</LayoutContent>
+            </TooltipProvider>
+          </SessionProvider>
         </ThemeProvider>
       </body>
     </html>
