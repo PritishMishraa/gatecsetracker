@@ -157,10 +157,10 @@ function RegistrationForm({
   return (
     <form noValidate onSubmit={onSubmit} className="mx-auto w-full max-w-105">
       <div className="mb-7 sm:mb-8">
-        <h2 className="mb-2 [font-family:var(--font-instrument-serif)] text-[24px] leading-[1.15] tracking-[-0.02em] text-[#0f1623] text-balance sm:text-[26px] sm:leading-tight">
+        <h2 className="mb-2 [font-family:var(--font-instrument-serif)] text-[24px] leading-[1.15] tracking-[-0.02em] text-balance text-[#0f1623] sm:text-[26px] sm:leading-tight">
           Register for early access
         </h2>
-        <p className="text-[13.5px] leading-6 text-[#6b7583] text-pretty">
+        <p className="text-[13.5px] leading-6 text-pretty text-[#6b7583]">
           Takes 30 seconds. Early birds get an exclusive discount at launch.
         </p>
       </div>
@@ -214,7 +214,7 @@ function RegistrationForm({
 
       <div className="my-5 flex items-center gap-3">
         <div className="h-px flex-1 bg-[#e4e7ec]" />
-        <span className="[font-family:var(--font-dm-mono)] text-[10px] uppercase tracking-[0.06em] text-[#cbd0d9]">
+        <span className="[font-family:var(--font-dm-mono)] text-[10px] tracking-[0.06em] text-[#cbd0d9] uppercase">
           optional
         </span>
         <div className="h-px flex-1 bg-[#e4e7ec]" />
@@ -299,7 +299,7 @@ function EarlyAccessSuccess() {
         with your early access and discount code.
       </p>
 
-      <p className="mt-5 [font-family:var(--font-instrument-serif)] text-[13px] italic text-[#374151]">
+      <p className="mt-5 [font-family:var(--font-instrument-serif)] text-[13px] text-[#374151] italic">
         Thanks for being here from the start. - Pritish
       </p>
     </div>

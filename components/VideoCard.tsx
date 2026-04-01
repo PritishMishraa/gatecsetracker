@@ -42,7 +42,7 @@ export default function VideoCard({
     <div
       className={`flex rounded-2xl border p-4 transition-colors ${
         isChecked
-          ? "bg-emerald-50 border-emerald-200/60 dark:bg-emerald-900/15 dark:border-emerald-500/20"
+          ? "border-emerald-200/60 bg-emerald-50 dark:border-emerald-500/20 dark:bg-emerald-900/15"
           : "bg-card border-border/60"
       }`}
     >
@@ -60,12 +60,12 @@ export default function VideoCard({
           href={video.videoLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm font-medium grow truncate hover:underline ml-2 text-foreground"
+          className="text-foreground ml-2 grow truncate text-sm font-medium hover:underline"
         >
           {capitalizeFirstLetter(video.videoTitle)}
         </a>
-        <div className="flex items-center gap-2 ml-1 shrink-0">
-          <p className="text-sm text-muted-foreground">
+        <div className="ml-1 flex shrink-0 items-center gap-2">
+          <p className="text-muted-foreground text-sm">
             {formatTime(video.videoTime)}
           </p>
           <Checkbox

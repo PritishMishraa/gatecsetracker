@@ -46,12 +46,12 @@ export default function SignInPage() {
           <h1 className="text-2xl font-semibold tracking-tight">
             Welcome back
           </h1>
-          <p className="mt-2 text-sm text-muted-foreground">
+          <p className="text-muted-foreground mt-2 text-sm">
             Sign in to continue your GATE prep
           </p>
         </div>
 
-        <div className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm">
+        <div className="border-border/60 bg-card rounded-2xl border p-6 shadow-sm">
           <Button
             variant="outline"
             className="w-full rounded-full"
@@ -85,10 +85,10 @@ export default function SignInPage() {
 
           <div className="relative my-6">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-border" />
+              <div className="border-border w-full border-t" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-card px-2 text-muted-foreground">or</span>
+              <span className="bg-card text-muted-foreground px-2">or</span>
             </div>
           </div>
 
@@ -116,9 +116,7 @@ export default function SignInPage() {
               />
             </div>
 
-            {error && (
-              <p className="text-sm text-destructive">{error}</p>
-            )}
+            {error && <p className="text-destructive text-sm">{error}</p>}
 
             <Button
               type="submit"
@@ -131,11 +129,11 @@ export default function SignInPage() {
           </form>
         </div>
 
-        <p className="mt-6 text-center text-sm text-muted-foreground">
+        <p className="text-muted-foreground mt-6 text-center text-sm">
           Don&apos;t have an account?{" "}
           <Link
             href="/sign-up"
-            className="font-medium text-foreground hover:underline"
+            className="text-foreground font-medium hover:underline"
           >
             Sign up
           </Link>

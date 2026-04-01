@@ -10,40 +10,40 @@ export function Navbar() {
 
   return (
     <nav className="relative z-20 w-full">
-      <div className="flex items-center justify-between px-8 py-5 max-w-7xl mx-auto w-full">
-      <Link
-        href="/"
-        className="text-xl font-medium tracking-tight text-foreground"
-      >
-        GATE CSE Tracker
-      </Link>
-      <div className="hidden md:flex items-center gap-8 text-sm">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-8 py-5">
         <Link
-          href="/subject"
-          className="hover:opacity-60 transition-opacity text-foreground"
+          href="/"
+          className="text-foreground text-xl font-medium tracking-tight"
         >
-          Subjects
+          GATE CSE Tracker
         </Link>
-        <Link
-          href="/#premium"
-          className="hover:opacity-60 transition-opacity text-foreground"
-        >
-          Premium
-        </Link>
-      </div>
-      <div className="flex items-center gap-3">
-        <ThemeToggle />
-        {session ? (
-          <UserButton />
-        ) : (
+        <div className="hidden items-center gap-8 text-sm md:flex">
           <Link
-            href="/sign-in"
-            className="text-sm bg-primary text-primary-foreground px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity"
+            href="/subject"
+            className="text-foreground transition-opacity hover:opacity-60"
           >
-            Sign in
+            Subjects
           </Link>
-        )}
-      </div>
+          <Link
+            href="/#premium"
+            className="text-foreground transition-opacity hover:opacity-60"
+          >
+            Premium
+          </Link>
+        </div>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          {session ? (
+            <UserButton />
+          ) : (
+            <Link
+              href="/sign-in"
+              className="bg-primary text-primary-foreground rounded-full px-5 py-2.5 text-sm transition-opacity hover:opacity-90"
+            >
+              Sign in
+            </Link>
+          )}
+        </div>
       </div>
     </nav>
   );

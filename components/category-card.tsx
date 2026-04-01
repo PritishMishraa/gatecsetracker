@@ -22,13 +22,13 @@ export default function CategoryCard({
   return (
     <Link
       href={destination}
-      className="group block bg-card rounded-[2rem] border border-border/40 p-8 shadow-sm hover:shadow-md hover:border-border/80 transition-all duration-200"
+      className="group bg-card border-border/40 hover:border-border/80 block rounded-[2rem] border p-8 shadow-sm transition-all duration-200 hover:shadow-md"
     >
-      <div className="w-12 h-12 bg-background rounded-full mb-6 flex items-center justify-center text-foreground">
+      <div className="bg-background text-foreground mb-6 flex h-12 w-12 items-center justify-center rounded-full">
         {icon}
       </div>
-      <h3 className="text-lg font-medium mb-2 text-foreground">{name}</h3>
-      <p className="text-sm text-muted-foreground font-light leading-relaxed">
+      <h3 className="text-foreground mb-2 text-lg font-medium">{name}</h3>
+      <p className="text-muted-foreground text-sm leading-relaxed font-light">
         {description}
       </p>
     </Link>

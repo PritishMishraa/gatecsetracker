@@ -27,11 +27,11 @@ const Meteors = ({ stars }: { stars: number }) => {
   ];
 
   return (
-    <div className="border rounded-3xl h-96 w-full relative flex justify-center items-center text-center bg-primary-foreground overflow-hidden">
+    <div className="bg-primary-foreground relative flex h-96 w-full items-center justify-center overflow-hidden rounded-3xl border text-center">
       {meteorsData.map((meteor, index) => (
         <span
           key={index}
-          className="absolute top-1/2 left-1/2 h-0.5 w-0.5 rotate-215 animate-meteor rounded-[9999px] bg-white shadow-[0_0_0_1px_#ffffff10]"
+          className="animate-meteor absolute top-1/2 left-1/2 h-0.5 w-0.5 rotate-215 rounded-[9999px] bg-white shadow-[0_0_0_1px_#ffffff10]"
           style={{
             top: "-5px",
             left: `${meteor.left}px`,
@@ -51,14 +51,14 @@ const Meteors = ({ stars }: { stars: number }) => {
           ></div>
         </span>
       ))}
-      <div className="space-y-6 z-10">
+      <div className="z-10 space-y-6">
         <p>
-          <Balancer className="justify-center text-3xl font-bold tracking-tight sm:text-4xl text-white z-10">
+          <Balancer className="z-10 justify-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
             It&apos;s Open Source!
           </Balancer>
         </p>
         <Button
-          className="rounded-full hover:ring-4 ring-white"
+          className="rounded-full ring-white hover:ring-4"
           variant="secondary"
         >
           <a
@@ -83,7 +83,7 @@ const Meteors = ({ stars }: { stars: number }) => {
       </div>
       <svg
         viewBox="0 0 1024 1024"
-        className="absolute left-1/2 top-1/2 z-1 h-256 w-5xl -translate-x-1/2 mask-[radial-gradient(closest-side,white,transparent)]"
+        className="absolute top-1/2 left-1/2 z-1 h-256 w-5xl -translate-x-1/2 mask-[radial-gradient(closest-side,white,transparent)]"
         aria-hidden="true"
       >
         <circle

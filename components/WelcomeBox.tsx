@@ -5,14 +5,14 @@ import Link from "next/link";
 
 const WelcomeBox = () => {
   return (
-    <div className="relative isolate flex h-125 w-full flex-col items-center justify-center overflow-hidden rounded-3xl border bg-primary-foreground px-6 py-24 text-center my-auto sm:px-16">
+    <div className="bg-primary-foreground relative isolate my-auto flex h-125 w-full flex-col items-center justify-center overflow-hidden rounded-3xl border px-6 py-24 text-center sm:px-16">
       <h2>
         <Balancer className="mx-auto max-w-2xl text-4xl font-bold tracking-tight sm:text-6xl">
           Welcome to GATE CSE Tracker
         </Balancer>
       </h2>
       <p>
-        <Balancer className="mx-auto mt-6 max-w-xl text-lg leading-8 ">
+        <Balancer className="mx-auto mt-6 max-w-xl text-lg leading-8">
           GATE CSE Tracker is a platform to help you track your progress and
           achieve success in the GATE CSE Exam
         </Balancer>
@@ -24,7 +24,7 @@ const WelcomeBox = () => {
       </div>
       <svg
         viewBox="0 0 1024 1024"
-        className="absolute left-1/2 top-1/2 -z-10 h-256 w-5xl -translate-x-1/2 mask-[radial-gradient(closest-side,white,transparent)]"
+        className="absolute top-1/2 left-1/2 -z-10 h-256 w-5xl -translate-x-1/2 mask-[radial-gradient(closest-side,white,transparent)]"
         aria-hidden="true"
       >
         <circle

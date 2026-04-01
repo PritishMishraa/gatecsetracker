@@ -40,22 +40,22 @@ export default function VideoAccordion({
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem
           value="item-1"
-          className="bg-card rounded-2xl border border-border/40 px-4 mb-2"
+          className="bg-card border-border/40 mb-2 rounded-2xl border px-4"
         >
-          <AccordionTrigger className="hover:no-underline py-4">
-            <div className="flex items-center w-full">
-              <div className="shrink-0 mr-4">
-                <p className="font-semibold text-base text-foreground">
+          <AccordionTrigger className="py-4 hover:no-underline">
+            <div className="flex w-full items-center">
+              <div className="mr-4 shrink-0">
+                <p className="text-foreground text-base font-semibold">
                   Day {day}
                 </p>
-                <p className="text-sm text-muted-foreground font-normal">
+                <p className="text-muted-foreground text-sm font-normal">
                   {videos} videos
                 </p>
               </div>
-              <div className="grow mx-4">
+              <div className="mx-4 grow">
                 <Progress
                   value={calculateProgress()}
-                  className="w-full md:w-96 h-1.5 bg-muted/50"
+                  className="bg-muted/50 h-1.5 w-full md:w-96"
                 />
               </div>
             </div>

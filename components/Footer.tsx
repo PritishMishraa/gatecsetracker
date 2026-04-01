@@ -2,16 +2,16 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="relative z-10 bg-[#1A1A1A] text-white pt-24 pb-12 px-8 rounded-t-[3rem] mt-12 border-t border-transparent dark:border-white/5">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-24">
+    <footer className="relative z-10 mt-12 rounded-t-[3rem] border-t border-transparent bg-[#1A1A1A] px-8 pt-24 pb-12 text-white dark:border-white/5">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-24 grid grid-cols-2 gap-12 md:grid-cols-4">
           <div>
-            <h4 className="text-lg font-normal mb-6 text-gray-400">Product</h4>
+            <h4 className="mb-6 text-lg font-normal text-gray-400">Product</h4>
             <ul className="space-y-4 font-light">
               <li>
                 <Link
                   href="/subject"
-                  className="hover:text-gray-300 transition-colors"
+                  className="transition-colors hover:text-gray-300"
                 >
                   Subjects
                 </Link>
@@ -19,7 +19,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="#"
-                  className="hover:text-gray-300 transition-colors"
+                  className="transition-colors hover:text-gray-300"
                 >
                   Channels
                 </Link>
@@ -27,7 +27,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/#premium"
-                  className="hover:text-gray-300 transition-colors"
+                  className="transition-colors hover:text-gray-300"
                 >
                   Premium
                 </Link>
@@ -35,7 +35,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="#"
-                  className="hover:text-gray-300 transition-colors"
+                  className="transition-colors hover:text-gray-300"
                 >
                   Changelog
                 </Link>
@@ -43,7 +43,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h4 className="text-lg font-normal mb-6 text-gray-400">
+            <h4 className="mb-6 text-lg font-normal text-gray-400">
               Resources
             </h4>
             <ul className="space-y-4 font-light">
@@ -52,7 +52,7 @@ const Footer = () => {
                   href="https://github.com/PritishMishraa/gatecsetracker"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-gray-300 transition-colors"
+                  className="transition-colors hover:text-gray-300"
                 >
                   GitHub
                 </a>
@@ -60,7 +60,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="#"
-                  className="hover:text-gray-300 transition-colors"
+                  className="transition-colors hover:text-gray-300"
                 >
                   PYQ Sets
                 </Link>
@@ -68,7 +68,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="#"
-                  className="hover:text-gray-300 transition-colors"
+                  className="transition-colors hover:text-gray-300"
                 >
                   Study Plan
                 </Link>
@@ -76,14 +76,14 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h4 className="text-lg font-normal mb-6 text-gray-400">Connect</h4>
+            <h4 className="mb-6 text-lg font-normal text-gray-400">Connect</h4>
             <ul className="space-y-4 font-light">
               <li>
                 <a
                   href="https://twitter.com/PritishhMishraa"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-gray-300 transition-colors"
+                  className="transition-colors hover:text-gray-300"
                 >
                   Twitter
                 </a>
@@ -93,7 +93,7 @@ const Footer = () => {
                   href="https://github.com/PritishMishraa"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-gray-300 transition-colors"
+                  className="transition-colors hover:text-gray-300"
                 >
                   GitHub
                 </a>
@@ -101,12 +101,12 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h4 className="text-lg font-normal mb-6 text-gray-400">Legal</h4>
+            <h4 className="mb-6 text-lg font-normal text-gray-400">Legal</h4>
             <ul className="space-y-4 font-light">
               <li>
                 <Link
                   href="#"
-                  className="hover:text-gray-300 transition-colors"
+                  className="transition-colors hover:text-gray-300"
                 >
                   Privacy Policy
                 </Link>
@@ -114,7 +114,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="#"
-                  className="hover:text-gray-300 transition-colors"
+                  className="transition-colors hover:text-gray-300"
                 >
                   Terms of Service
                 </Link>
@@ -122,14 +122,14 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-gray-800">
+        <div className="flex flex-col items-center justify-between border-t border-gray-800 pt-8 md:flex-row">
           <div
-            className="text-6xl md:text-8xl font-normal tracking-tighter opacity-20 select-none mb-8 md:mb-0"
+            className="mb-8 text-6xl font-normal tracking-tighter opacity-20 select-none md:mb-0 md:text-8xl"
             style={{ fontFamily: "var(--font-instrument-serif), serif" }}
           >
             GATE CSE
           </div>
-          <div className="text-sm text-gray-500 font-light">
+          <div className="text-sm font-light text-gray-500">
             &copy; {new Date().getFullYear()} Pritish Mishra. All rights
             reserved.
           </div>

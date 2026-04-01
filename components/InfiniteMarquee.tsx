@@ -1,7 +1,7 @@
 const InfiniteMarquee = ({ data }: { data: string[] }) => {
   return (
     <div
-      className="relative overflow-hidden w-full h-full"
+      className="relative h-full w-full overflow-hidden"
       style={{
         WebkitMaskImage:
           "linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 20%, rgb(0, 0, 0) 80%, rgba(0, 0, 0, 0) 100%)",

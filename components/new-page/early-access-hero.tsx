@@ -3,7 +3,7 @@ import { EARLY_ACCESS_FEATURES } from "./constants";
 export function EarlyAccessHero() {
   return (
     <section className="hidden flex-col justify-center md:flex md:px-14 md:py-18">
-      <div className="mb-6 inline-flex items-center gap-2 [font-family:var(--font-dm-mono)] text-[10.5px] uppercase tracking-[0.12em] text-blue-400">
+      <div className="mb-6 inline-flex items-center gap-2 [font-family:var(--font-dm-mono)] text-[10.5px] tracking-[0.12em] text-blue-400 uppercase">
         <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
         Coming back. Better.
       </div>
@@ -11,12 +11,12 @@ export function EarlyAccessHero() {
       <h1 className="mb-5 max-w-[11ch] [font-family:var(--font-instrument-serif)] text-[clamp(2rem,10vw,3.375rem)] leading-[1.02] tracking-[-0.02em] text-balance md:mb-6 md:max-w-[12ch] md:leading-[1.1]">
         Track your prep.
         <br />
-        <span className="bg-linear-to-br from-blue-300 to-blue-600 bg-clip-text italic text-transparent">
+        <span className="bg-linear-to-br from-blue-300 to-blue-600 bg-clip-text text-transparent italic">
           Actually finish it.
         </span>
       </h1>
 
-      <p className="mb-10 max-w-120 text-[14px] leading-7 text-white/55 text-pretty sm:text-[15px] sm:leading-8 md:mb-12 md:max-w-105">
+      <p className="mb-10 max-w-120 text-[14px] leading-7 text-pretty text-white/55 sm:text-[15px] sm:leading-8 md:mb-12 md:max-w-105">
         GATE CSE Tracker is being rebuilt from scratch{" "}
         <strong className="font-medium text-white/80">
           with cleaner UI, curated resources, real progress tracking,
@@ -25,7 +25,7 @@ export function EarlyAccessHero() {
         discount.
       </p>
 
-      <p className="mb-3 [font-family:var(--font-dm-mono)] text-[10px] uppercase tracking-[0.14em] text-white/30">
+      <p className="mb-3 [font-family:var(--font-dm-mono)] text-[10px] tracking-[0.14em] text-white/30 uppercase">
         What&apos;s coming
       </p>
 

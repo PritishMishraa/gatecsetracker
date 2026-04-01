@@ -144,17 +144,17 @@ export default function SubjectContent({
   return (
     <div className="relative overflow-clip">
       <div className="paper-texture" />
-      <div className="relative z-10 container max-w-5xl mx-auto py-12 px-4">
+      <div className="relative z-10 container mx-auto max-w-5xl px-4 py-12">
         {/* Header */}
-        <div className="bg-card rounded-[2rem] border border-border/40 p-8 md:p-12 shadow-sm mb-8">
-          <h1 className="paper-hero-title text-4xl md:text-5xl tracking-tight mb-4">
+        <div className="bg-card border-border/40 mb-8 rounded-[2rem] border p-8 shadow-sm md:p-12">
+          <h1 className="paper-hero-title mb-4 text-4xl tracking-tight md:text-5xl">
             {subject}
           </h1>
           <div className="flex flex-wrap gap-3">
-            <span className="text-sm bg-background rounded-full px-4 py-2 border border-border/50 text-muted-foreground">
+            <span className="bg-background border-border/50 text-muted-foreground rounded-full border px-4 py-2 text-sm">
               Days Left: {totalDaysLeft}
             </span>
-            <span className="text-sm bg-background rounded-full px-4 py-2 border border-border/50 text-muted-foreground inline-flex items-center gap-2">
+            <span className="bg-background border-border/50 text-muted-foreground inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm">
               Total Days: {totalDays}
               <InfoTooltip
                 totalDuration={convertSecondsToTime(totalDuration)}
@@ -164,7 +164,7 @@ export default function SubjectContent({
         </div>
 
         {/* Controls */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+        <div className="mb-8 flex flex-wrap items-center justify-center gap-3">
           <StudyTimeHourCombobox
             studyTimeOption={studyTimeOption}
             handleStudyTimeOption={handleStudyTimeOption}
@@ -194,7 +194,7 @@ export default function SubjectContent({
           ))}
 
         {/* Pagination */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mt-8">
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
           <StudyDaysCombobox
             studyDaysOption={studyDaysOption}
             handleStudyDaysOption={handleStudyDaysOption}

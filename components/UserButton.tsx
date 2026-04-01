@@ -18,9 +18,7 @@ export function UserButton() {
   const router = useRouter();
 
   if (isPending) {
-    return (
-      <div className="size-8 animate-pulse rounded-full bg-muted" />
-    );
+    return <div className="bg-muted size-8 animate-pulse rounded-full" />;
   }
 
   if (!session) {
@@ -40,7 +38,7 @@ export function UserButton() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="rounded-full outline-none focus-visible:ring-2 focus-visible:ring-ring">
+        <button className="focus-visible:ring-ring rounded-full outline-none focus-visible:ring-2">
           <Avatar>
             <AvatarImage src={user.image ?? undefined} alt={user.name} />
             <AvatarFallback>{initials}</AvatarFallback>
@@ -50,8 +48,8 @@ export function UserButton() {
       <DropdownMenuContent align="end" className="w-56">
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">{user.name}</p>
-            <p className="text-xs leading-none text-muted-foreground">
+            <p className="text-sm leading-none font-medium">{user.name}</p>
+            <p className="text-muted-foreground text-xs leading-none">
               {user.email}
             </p>
           </div>
