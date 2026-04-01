@@ -146,7 +146,7 @@ export default function SubjectContent({
       <div className="paper-texture" />
       <div className="relative z-10 container mx-auto max-w-5xl px-4 py-12">
         {/* Header */}
-        <div className="bg-card border-border/40 mb-8 rounded-[2rem] border p-8 shadow-sm md:p-12">
+        <div className="bg-card border-border/40 mb-8 rounded-4xl border p-8 shadow-sm md:p-12">
           <h1 className="paper-hero-title mb-4 text-4xl tracking-tight md:text-5xl">
             {subject}
           </h1>

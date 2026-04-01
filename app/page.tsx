@@ -122,8 +122,8 @@ export default async function Home() {
         </div>
 
         {/* Dashboard Preview */}
-        <div className="bg-card border-border/60 w-full rounded-[2rem] border p-4 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)]">
-          <div className="bg-background border-border/40 rounded-[1.5rem] border p-6 md:p-8">
+        <div className="bg-card border-border/60 w-full rounded-4xl border p-4 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)]">
+          <div className="bg-background border-border/40 rounded-3xl border p-6 md:p-8">
             <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
               <div>
                 <p className="text-muted-foreground mb-1 text-xs font-semibold tracking-widest uppercase">
@@ -193,7 +193,7 @@ export default async function Home() {
               one place — designed around the way GATE aspirants actually study.
             </p>
             <div className="grid gap-8 md:grid-cols-2">
-              <div className="bg-card border-border/40 rounded-[2rem] border p-8 text-left shadow-sm">
+              <div className="bg-card border-border/40 rounded-4xl border p-8 text-left shadow-sm">
                 <div className="bg-background mb-6 flex h-12 w-12 items-center justify-center rounded-full">
                   <span className="text-xl">📊</span>
                 </div>
@@ -204,7 +204,7 @@ export default async function Home() {
                   chaos.
                 </p>
               </div>
-              <div className="bg-card border-border/40 rounded-[2rem] border p-8 text-left shadow-sm">
+              <div className="bg-card border-border/40 rounded-4xl border p-8 text-left shadow-sm">
                 <div className="bg-background mb-6 flex h-12 w-12 items-center justify-center rounded-full">
                   <span className="text-xl">📺</span>
                 </div>
@@ -242,7 +242,7 @@ export default async function Home() {
             return (
               <div
                 key={f.title}
-                className="bg-card border-border/40 rounded-[2rem] border p-8 shadow-sm"
+                className="bg-card border-border/40 rounded-4xl border p-8 shadow-sm"
               >
                 <div className="bg-background mb-6 flex h-12 w-12 items-center justify-center rounded-full">
                   <Icon className="size-5" />
@@ -257,7 +257,7 @@ export default async function Home() {
         </div>
 
         {/* Pricing */}
-        <div className="bg-card border-border/40 rounded-[2rem] border p-8 text-center shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] md:p-12">
+        <div className="bg-card border-border/40 rounded-4xl border p-8 text-center shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] md:p-12">
           <p className="text-muted-foreground mb-4 text-xs font-semibold tracking-widest uppercase">
             Launch pricing
           </p>
@@ -295,7 +295,7 @@ export default async function Home() {
         <h2 className="mb-10 text-center text-3xl font-normal tracking-tight md:text-4xl">
           Common questions
         </h2>
-        <div className="bg-card border-border/40 overflow-hidden rounded-[2rem] border shadow-sm">
+        <div className="bg-card border-border/40 overflow-hidden rounded-4xl border shadow-sm">
           <Accordion type="single" collapsible className="px-6">
             {faqs.map((item) => (
               <AccordionItem key={item.question} value={item.question}>
