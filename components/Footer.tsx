@@ -105,7 +105,7 @@ const Footer = () => {
             <ul className="space-y-4 font-light">
               <li>
                 <Link
-                  href="#"
+                  href="/privacy-policy"
                   className="transition-colors hover:text-gray-300"
                 >
                   Privacy Policy
@@ -113,7 +113,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/terms-of-service"
                   className="transition-colors hover:text-gray-300"
                 >
                   Terms of Service
