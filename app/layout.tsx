@@ -6,6 +6,7 @@ import { SessionProvider } from "@/components/SessionProvider";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { getServerSession } from "@/lib/session";
+import { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 const dmSans = DM_Sans({
@@ -29,7 +30,7 @@ const instrumentSerif = localFont({
   variable: "--font-instrument-serif",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "GATE CSE Tracker",
   description: "Track and Achieve Success in the GATE CSE Exam",
 };
