@@ -1,24 +1,10 @@
 import { notFound } from "next/navigation";
 
 import subjects from "@/data/subjects.json";
+import allPlaylists from "@/data/playlists.json";
+import { getServerPremiumAccess } from "@/lib/premium-access";
 
-import SubjectContent from "./SubjectContent";
-
-const subjectDataModules = {
-  a: () => import("@/data/a.json"),
-  algo: () => import("@/data/algo.json"),
-  cd: () => import("@/data/cd.json"),
-  cn: () => import("@/data/cn.json"),
-  coa: () => import("@/data/coa.json"),
-  cp: () => import("@/data/cp.json"),
-  dbms: () => import("@/data/dbms.json"),
-  dl: () => import("@/data/dl.json"),
-  dm: () => import("@/data/dm.json"),
-  ds: () => import("@/data/ds.json"),
-  em: () => import("@/data/em.json"),
-  os: () => import("@/data/os.json"),
-  toc: () => import("@/data/toc.json"),
-} as Record<string, () => Promise<{ default: Video[] }>>;
+import PlaylistList from "./PlaylistList";
 
 export default async function Page({
   params,
@@ -34,19 +20,41 @@ export default async function Page({
     notFound();
   }
 
-  const loadData = subjectDataModules[subjectData.code];
+  const playlists = (
+    allPlaylists as Record<string, Playlist[]>
+  )[subjectData.code];
 
-  if (!loadData) {
+  if (!playlists || playlists.length === 0) {
     notFound();
   }
 
-  const data = (await loadData()).default;
+  const hasPremiumPlaylists = playlists.some(
+    (playlist) => playlist.access === "auth",
+  );
+  const { session, hasPremiumAccess } = hasPremiumPlaylists
+    ? await getServerPremiumAccess()
+    : { session: null, hasPremiumAccess: false };
 
   return (
-    <SubjectContent
-      subject={subjectData.name}
-      subjectCode={subjectData.code}
-      initialData={data}
-    />
+    <div className="relative overflow-clip">
+      <div className="paper-texture" />
+      <div className="relative z-10 container mx-auto max-w-5xl px-4 py-12">
+        <div className="bg-card border-border/40 mb-8 rounded-4xl border p-8 shadow-sm md:p-12">
+          <h1 className="paper-hero-title mb-4 text-4xl tracking-tight md:text-5xl">
+            {subjectData.name}
+          </h1>
+          <p className="text-muted-foreground text-lg font-light">
+            Select a playlist to start tracking
+          </p>
+        </div>
+
+        <PlaylistList
+          slug={slug}
+          playlists={playlists}
+          hasSession={Boolean(session)}
+          hasPremiumAccess={hasPremiumAccess}
+        />
+      </div>
+    </div>
   );
 }
