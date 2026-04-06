@@ -4,9 +4,10 @@ import localFont from "next/font/local";
 import { LayoutContent } from "@/components/LayoutContent";
 import { SessionProvider } from "@/components/SessionProvider";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { getServerSession } from "@/lib/session";
 import { Metadata } from "next";
+import { getServerPremiumAccess } from "@/lib/premium-access";
 
 const inter = Inter({ subsets: ["latin"] });
 const dmSans = DM_Sans({
@@ -40,7 +41,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSession();
+  const { session, hasPremiumAccess } = await getServerPremiumAccess();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -103,10 +105,14 @@ export default async function RootLayout({
         ].join(" ")}
       >
         <ThemeProvider>
-          <SessionProvider initialSession={session}>
+          <SessionProvider
+            initialSession={session}
+            initialHasPremiumAccess={hasPremiumAccess}
+          >
             <TooltipProvider>
               <LayoutContent>{children}</LayoutContent>
             </TooltipProvider>
+            <Toaster />
           </SessionProvider>
         </ThemeProvider>
       </body>

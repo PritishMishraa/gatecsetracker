@@ -4,8 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Sparkles } from "lucide-react";
+import { PremiumCheckoutButton } from "@/components/PremiumCheckoutButton";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -62,7 +62,7 @@ export default function PlaylistList({
                 {playlist.name}
               </h3>
               {playlist.access === "auth" && (
-                <Badge className="bg-amber-500/15 text-amber-600 border-amber-500/25 dark:text-amber-400 border">
+                <Badge className="border border-amber-500/25 bg-amber-500/15 text-amber-600 dark:text-amber-400">
                   <Sparkles className="h-3 w-3" />
                   Premium
                 </Badge>
@@ -81,7 +81,7 @@ export default function PlaylistList({
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
-              <Sparkles className="text-amber-500 h-5 w-5" />
+              <Sparkles className="h-5 w-5 text-amber-500" />
               Upgrade to Premium
             </DialogTitle>
             <DialogDescription>
@@ -99,9 +99,9 @@ export default function PlaylistList({
             </p>
           </div>
           <DialogFooter className="sm:justify-center">
-            <Button className="w-full rounded-full" size="lg">
+            <PremiumCheckoutButton className="w-full rounded-full" size="lg">
               Buy Premium
-            </Button>
+            </PremiumCheckoutButton>
           </DialogFooter>
         </DialogContent>
       </Dialog>

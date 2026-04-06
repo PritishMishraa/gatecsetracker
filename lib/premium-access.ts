@@ -1,18 +1,9 @@
-import { eq } from "drizzle-orm";
-
-import db from "@/db";
-import { user } from "@/db/schema";
+import { hasPremiumAccess as getHasPremiumAccess } from "@/lib/billing/entitlements";
 import { getServerSession } from "@/lib/session";
 
 export async function hasPremiumAccess(userId: string) {
   try {
-    const result = await db
-      .select({ hasPremiumAccess: user.hasPremiumAccess })
-      .from(user)
-      .where(eq(user.id, userId))
-      .limit(1);
-
-    return result[0]?.hasPremiumAccess === true;
+    return await getHasPremiumAccess(userId);
   } catch (error) {
     console.error("Failed to resolve premium access", error);
     return false;
@@ -22,8 +13,15 @@ export async function hasPremiumAccess(userId: string) {
 export async function getServerPremiumAccess() {
   const session = await getServerSession();
 
+  if (!session?.user.id) {
+    return {
+      session,
+      hasPremiumAccess: false,
+    };
+  }
+
   return {
     session,
-    hasPremiumAccess: session?.user.hasPremiumAccess ?? false,
+    hasPremiumAccess: await hasPremiumAccess(session.user.id),
   };
 }

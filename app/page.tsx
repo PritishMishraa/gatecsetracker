@@ -14,6 +14,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { PremiumCheckoutButton } from "@/components/PremiumCheckoutButton";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 
@@ -280,13 +281,22 @@ export default async function Home() {
               <ListChecks className="size-4" /> Guided revision planning
             </span>
           </div>
-          <Button
-            asChild
-            size="lg"
-            className="rounded-full px-8 text-base shadow-sm"
-          >
-            <Link href="/subject">Explore free tracking first</Link>
-          </Button>
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <PremiumCheckoutButton
+              size="lg"
+              className="rounded-full px-8 text-base shadow-sm"
+            >
+              Buy Premium
+            </PremiumCheckoutButton>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="rounded-full px-8 text-base"
+            >
+              <Link href="/subject">Explore free tracking first</Link>
+            </Button>
+          </div>
         </div>
       </section>
 

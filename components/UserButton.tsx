@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { deleteUser, signOut } from "@/lib/auth-client";
+import { CreditCard, Crown, Loader2, LogOut, Trash2 } from "lucide-react";
+import { toast } from "sonner";
+
 import { useAuthSession } from "@/components/SessionProvider";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -24,7 +26,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
-import { Crown, Loader2, LogOut, Trash2 } from "lucide-react";
+import { authClient, deleteUser, signOut } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
 
 export function UserButton() {
@@ -34,6 +36,7 @@ export function UserButton() {
   const [password, setPassword] = useState("");
   const [deleteError, setDeleteError] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const [isOpeningBillingPortal, setIsOpeningBillingPortal] = useState(false);
 
   if (isPending) {
     return <div className="bg-muted size-8 animate-pulse rounded-full" />;
@@ -46,11 +49,11 @@ export function UserButton() {
   const user = session.user;
   const initials = user.name
     ? user.name
-      .split(" ")
-      .map((n) => n[0])
-      .join("")
-      .toUpperCase()
-      .slice(0, 2)
+        .split(" ")
+        .map((n) => n[0])
+        .join("")
+        .toUpperCase()
+        .slice(0, 2)
     : user.email[0].toUpperCase();
 
   function handleDeleteDialogChange(open: boolean) {
@@ -107,6 +110,25 @@ export function UserButton() {
     router.refresh();
   }
 
+  async function handleOpenBillingPortal() {
+    setIsOpeningBillingPortal(true);
+
+    const { data, error } = await authClient.dodopayments.customer.portal();
+
+    setIsOpeningBillingPortal(false);
+
+    if (error || !data?.url) {
+      toast.error(
+        error?.code === "UNAUTHORIZED"
+          ? "Verify your email before opening the billing portal."
+          : (error?.message ?? "Could not open the billing portal."),
+      );
+      return;
+    }
+
+    window.location.href = data.url;
+  }
+
   return (
     <AlertDialog
       open={deleteDialogOpen}
@@ -130,7 +152,7 @@ export function UserButton() {
               </Avatar>
               {hasPremiumAccess ? (
                 <span
-                  className="pointer-events-none absolute -right-0.5 -bottom-0.5 z-10 flex size-[15px] items-center justify-center rounded-full border border-amber-600/25 bg-amber-500 text-amber-950 shadow-sm ring-2 ring-background dark:border-amber-300/30 dark:bg-amber-400 dark:text-amber-950"
+                  className="ring-background pointer-events-none absolute -right-0.5 -bottom-0.5 z-10 flex size-[15px] items-center justify-center rounded-full border border-amber-600/25 bg-amber-500 text-amber-950 shadow-sm ring-2 dark:border-amber-300/30 dark:bg-amber-400 dark:text-amber-950"
                   aria-hidden
                 >
                   <Crown className="size-[9px]" strokeWidth={2.5} />
@@ -149,6 +171,19 @@ export function UserButton() {
             </div>
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
+          {hasPremiumAccess ? (
+            <DropdownMenuItem
+              disabled={isOpeningBillingPortal}
+              onClick={handleOpenBillingPortal}
+            >
+              {isOpeningBillingPortal ? (
+                <Loader2 className="size-4 animate-spin" />
+              ) : (
+                <CreditCard className="size-4" />
+              )}
+              Billing portal
+            </DropdownMenuItem>
+          ) : null}
           <DropdownMenuItem
             onClick={async () => {
               await signOut();
