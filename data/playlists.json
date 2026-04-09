@@ -1,0 +1,140 @@
+{
+  "a": [
+    {
+      "name": "Aptitude by GATE Wallah",
+      "slug": "gate-wallah",
+      "dataFile": "a",
+      "youtubePlaylistUrl": "https://www.youtube.com/playlist?list=PLvTTv60o7qj-PgF3DhvvTK6_-g_FU8wCT",
+      "channelName": "GATE Wallah",
+      "access": "free"
+    }
+  ],
+  "algo": [
+    {
+      "name": "Algorithms by GATE Academy",
+      "slug": "gate-academy",
+      "dataFile": "algo",
+      "youtubePlaylistUrl": "https://www.youtube.com/playlist?list=PLir19lgiavA2h95ln1UUwPoZkt9ueSbhQ",
+      "channelName": "GATE ACADEMY - CS IT",
+      "access": "free"
+    }
+  ],
+  "cd": [
+    {
+      "name": "Compiler Design by Unacademy",
+      "slug": "unacademy",
+      "dataFile": "cd",
+      "youtubePlaylistUrl": "https://www.youtube.com/playlist?list=PLG9aCp4uE-s1NGf_6tQbDBsjLRjquKBE1",
+      "channelName": "Unacademy Computer Science",
+      "access": "free"
+    }
+  ],
+  "cn": [
+    {
+      "name": "Computer Networks by Amit Khurana",
+      "slug": "amit-khurana",
+      "dataFile": "cn",
+      "youtubePlaylistUrl": "https://www.youtube.com/playlist?list=PLC36xJgs4dxHT-TxTy3U1slr5RaBJGaLd",
+      "channelName": "GATE CSE LECTURES BY AMIT KHURANA",
+      "access": "free"
+    }
+  ],
+  "coa": [
+    {
+      "name": "COA by Unacademy",
+      "slug": "unacademy",
+      "dataFile": "coa",
+      "youtubePlaylistUrl": "https://www.youtube.com/playlist?list=PLG9aCp4uE-s0xddCBjwMDnEVyc523WbA2",
+      "channelName": "Unacademy Computer Science",
+      "access": "free"
+    }
+  ],
+  "cp": [
+    {
+      "name": "C Programming by Amit Khurana",
+      "slug": "amit-khurana",
+      "dataFile": "cp",
+      "youtubePlaylistUrl": "https://www.youtube.com/playlist?list=PLC36xJgs4dxG-IqARhc23jYTDMYt7yvZP",
+      "channelName": "GATE CSE LECTURES BY AMIT KHURANA",
+      "access": "free"
+    }
+  ],
+  "dbms": [
+    {
+      "name": "DBMS by Amit Khurana",
+      "slug": "amit-khurana",
+      "dataFile": "dbms",
+      "youtubePlaylistUrl": "https://www.youtube.com/playlist?list=PLC36xJgs4dxGcz7nZaxGxxmbJrcgDXhFk",
+      "channelName": "GATE CSE LECTURES BY AMIT KHURANA",
+      "access": "free"
+    }
+  ],
+  "dl": [
+    {
+      "name": "Digital Logic by Amit Khurana",
+      "slug": "amit-khurana",
+      "dataFile": "dl",
+      "youtubePlaylistUrl": "https://www.youtube.com/playlist?list=PLC36xJgs4dxEErKQZ7xFxat8oh4OepU34",
+      "channelName": "GATE CSE LECTURES BY AMIT KHURANA",
+      "access": "free"
+    }
+  ],
+  "dm": [
+    {
+      "name": "Discrete Mathematics by Amit Khurana",
+      "slug": "amit-khurana",
+      "dataFile": "dm",
+      "youtubePlaylistUrl": "https://www.youtube.com/playlist?list=PLC36xJgs4dxEYmhzVBW7nBdftFZ4xmiF1",
+      "channelName": "GATE CSE LECTURES BY AMIT KHURANA",
+      "access": "free"
+    },
+    {
+      "name": "Discrete Mathematics by GATE Wallah",
+      "slug": "gate-wallah",
+      "dataFile": "dm-gate-wallah",
+      "youtubePlaylistUrl": "https://www.youtube.com/playlist?list=PL3eEXnCBViH-T76wHeHTlp6hoD-inQLPp",
+      "channelName": "GATE Wallah CSE & DA",
+      "access": "auth"
+    }
+  ],
+  "ds": [
+    {
+      "name": "Data Structures by Unacademy",
+      "slug": "unacademy",
+      "dataFile": "ds",
+      "youtubePlaylistUrl": "https://www.youtube.com/playlist?list=PLx9tWsBMrsTho2pUdEgnkLVp-gT9jLWuP",
+      "channelName": "Unacademy Computer Science",
+      "access": "free"
+    }
+  ],
+  "em": [
+    {
+      "name": "Engineering Mathematics by GATE Wallah",
+      "slug": "gate-wallah",
+      "dataFile": "em",
+      "youtubePlaylistUrl": "https://www.youtube.com/playlist?list=PLvTTv60o7qj_tdY9zH7YceES7jfXiZkAz",
+      "channelName": "GATE Wallah",
+      "access": "free"
+    }
+  ],
+  "os": [
+    {
+      "name": "Operating System by Unacademy",
+      "slug": "unacademy",
+      "dataFile": "os",
+      "youtubePlaylistUrl": "https://www.youtube.com/playlist?list=PLG9aCp4uE-s17rFjWM8KchGlffXgOzzVP",
+      "channelName": "Unacademy Computer Science",
+      "access": "free"
+    }
+  ],
+  "toc": [
+    {
+      "name": "Theory of Computation by Amit Khurana",
+      "slug": "amit-khurana",
+      "dataFile": "toc",
+      "youtubePlaylistUrl": "https://www.youtube.com/playlist?list=PLC36xJgs4dxGvebewU4z2CZYo-8nB93E7",
+      "channelName": "GATE CSE LECTURES BY AMIT KHURANA",
+      "access": "free"
+    }
+  ]
+}

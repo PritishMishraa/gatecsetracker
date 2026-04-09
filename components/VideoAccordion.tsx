@@ -25,10 +25,10 @@ export default function VideoAccordion({
 }: TVideoAccordion) {
   function calculateProgress() {
     let totalWatchedVideosTime = 0;
-    let totalLength = 0
+    let totalLength = 0;
     for (let i = 0; i < videosForDay.length; i++) {
       if (checkboxStatus[videosForDay[i].index] === true) {
-        totalWatchedVideosTime += (videosForDay[i].videoDurationInSeconds)
+        totalWatchedVideosTime += videosForDay[i].videoDurationInSeconds;
       }
       totalLength += videosForDay[i].videoDurationInSeconds;
     }
@@ -36,36 +36,38 @@ export default function VideoAccordion({
   }
 
   return (
-    <div className="mx-auto py-1">
+    <div className="py-1">
       <Accordion type="single" collapsible className="w-full">
-        <AccordionItem value="item-1">
-          <AccordionTrigger>
-            <div className="flex items-center w-full">
-              <h1 className="font-bold text-lg flex-shrink-0">
-                Day - {day}{" "}
-                <span className="text-muted-foreground font-normal text-base ml-1 block">
+        <AccordionItem
+          value="item-1"
+          className="bg-card border-border/40 mb-2 rounded-2xl border px-4"
+        >
+          <AccordionTrigger className="py-4 hover:no-underline">
+            <div className="flex w-full items-center">
+              <div className="mr-4 shrink-0">
+                <p className="text-foreground text-base font-semibold">
+                  Day {day}
+                </p>
+                <p className="text-muted-foreground text-sm font-normal">
                   {videos} videos
-                </span>
-              </h1>
-              <div className="flex-grow mx-4">
-                <div className="flex justify-center">
-                  <Progress
-                    value={calculateProgress()}
-                    className="w-full md:w-96"
-                  />
-                </div>
+                </p>
+              </div>
+              <div className="mx-4 grow">
+                <Progress
+                  value={calculateProgress()}
+                  className="bg-muted/50 h-1.5 w-full md:w-96"
+                />
               </div>
             </div>
           </AccordionTrigger>
-          <AccordionContent>
+          <AccordionContent className="space-y-3 pb-4">
             {videosForDay.map((video) => (
-              <div key={video.index} className="mb-4">
-                <VideoCard
-                  video={video}
-                  checkboxStatus={checkboxStatus}
-                  setCheckboxStatus={setCheckboxStatus}
-                />
-              </div>
+              <VideoCard
+                key={video.index}
+                video={video}
+                checkboxStatus={checkboxStatus}
+                setCheckboxStatus={setCheckboxStatus}
+              />
             ))}
           </AccordionContent>
         </AccordionItem>

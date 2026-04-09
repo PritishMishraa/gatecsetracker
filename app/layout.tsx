@@ -2,6 +2,12 @@ import "./globals.css";
 import { DM_Mono, DM_Sans, Inter } from "next/font/google";
 import localFont from "next/font/local";
 import { LayoutContent } from "@/components/LayoutContent";
+import { SessionProvider } from "@/components/SessionProvider";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { Toaster } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { Metadata } from "next";
+import { getServerPremiumAccess } from "@/lib/premium-access";
 
 const inter = Inter({ subsets: ["latin"] });
 const dmSans = DM_Sans({
@@ -25,18 +31,24 @@ const instrumentSerif = localFont({
   variable: "--font-instrument-serif",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "GATE CSE Tracker",
   description: "Track and Achieve Success in the GATE CSE Exam",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { session, hasPremiumAccess } = await getServerPremiumAccess();
+
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      data-scroll-behavior="smooth"
+    >
       <head>
         <meta property="og:url" content="https://gatecsetracker.vercel.app/" />
         <meta property="og:type" content="website" />
@@ -96,7 +108,17 @@ export default function RootLayout({
           instrumentSerif.variable,
         ].join(" ")}
       >
-        <LayoutContent>{children}</LayoutContent>
+        <ThemeProvider>
+          <SessionProvider
+            initialSession={session}
+            initialHasPremiumAccess={hasPremiumAccess}
+          >
+            <TooltipProvider>
+              <LayoutContent>{children}</LayoutContent>
+            </TooltipProvider>
+            <Toaster />
+          </SessionProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

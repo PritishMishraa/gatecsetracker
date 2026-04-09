@@ -35,13 +35,13 @@ export function StudyTimeHourCombobox({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-50 justify-between"
         >
           {studyTimeOption.hours} Hours
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="w-50 p-0">
         <Command>
           <CommandInput placeholder="Search Time..." />
           <CommandEmpty>No time found.</CommandEmpty>
@@ -62,7 +62,7 @@ export function StudyTimeHourCombobox({
                         "mr-2 h-4 w-4",
                         studyTimeOption.hours === option
                           ? "opacity-100"
-                          : "opacity-0"
+                          : "opacity-0",
                       )}
                     />
                     {option} Hours
@@ -93,13 +93,13 @@ export function StudyTimeMinuteCombobox({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-50 justify-between"
         >
           {studyTimeOption.minutes} Minutes
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="w-50 p-0">
         <Command>
           <CommandInput placeholder="Search Time..." />
           <CommandEmpty>No time found.</CommandEmpty>
@@ -120,7 +120,7 @@ export function StudyTimeMinuteCombobox({
                         "mr-2 h-4 w-4",
                         studyTimeOption.minutes === option
                           ? "opacity-100"
-                          : "opacity-0"
+                          : "opacity-0",
                       )}
                     />
                     {option} Minutes
@@ -151,13 +151,13 @@ export function StudyDaysCombobox({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-50 justify-between"
         >
           {studyDaysOption} / page
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="w-50 p-0">
         <Command>
           <CommandGroup>
             {[3, 5, 7].map((option) => (
@@ -171,7 +171,7 @@ export function StudyDaysCombobox({
                 <Check
                   className={cn(
                     "mr-2 h-4 w-4",
-                    studyDaysOption === option ? "opacity-100" : "opacity-0"
+                    studyDaysOption === option ? "opacity-100" : "opacity-0",
                   )}
                 />
                 {option} / page
@@ -200,13 +200,13 @@ export function SpeedCombobox({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-50 justify-between"
         >
           {speedOption}x
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="w-50 p-0">
         <Command>
           <CommandGroup>
             {[1, 1.25, 1.5, 1.75, 2].map((option) => (
@@ -220,7 +220,7 @@ export function SpeedCombobox({
                 <Check
                   className={cn(
                     "mr-2 h-4 w-4",
-                    speedOption === option ? "opacity-100" : "opacity-0"
+                    speedOption === option ? "opacity-100" : "opacity-0",
                   )}
                 />
                 {option}x

@@ -26,3 +26,12 @@ type Video = {
   videoTime: string;
   videoDurationInSeconds: number;
 };
+
+type Playlist = {
+  name: string;
+  slug: string;
+  dataFile: string;
+  youtubePlaylistUrl: string;
+  channelName: string;
+  access: "free" | "auth";
+};

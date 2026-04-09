@@ -8,6 +8,8 @@ import {
 } from "drizzle-orm/pg-core";
 import { GATE_YEAR_OPTIONS } from "../lib/early-access";
 
+export * from "./auth-schema";
+
 export const gateYearEnum = pgEnum("gate_year", GATE_YEAR_OPTIONS);
 
 export const waitlistTable = pgTable("waitlist", {

@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import { Checkbox } from "@/components/ui/checkbox";
 import { Dispatch, SetStateAction } from "react";
 
@@ -10,12 +12,9 @@ function formatTime(timeString: string): string {
   const parts = timeString.split(":");
   const formattedParts = parts.map((part) => {
     part = part.trim();
-    if (part.length === 1) {
-      return `0${part}`;
-    }
+    if (part.length === 1) return `0${part}`;
     return part;
   });
-
   return formattedParts.join(":");
 }
 
@@ -30,7 +29,7 @@ export default function VideoCard({
   checkboxStatus,
   setCheckboxStatus,
 }: TVideoCard) {
-  const isChecked = checkboxStatus[video.index];
+  const isChecked = checkboxStatus[video.index] ?? false;
 
   const handleCheckboxChange = (index: string) => {
     setCheckboxStatus((prevStatus) => ({
@@ -41,28 +40,34 @@ export default function VideoCard({
 
   return (
     <div
-      className={`flex border rounded-lg p-4 ${
-        isChecked ? "bg-green-400/60" : ""
+      className={`flex rounded-2xl border p-4 transition-colors ${
+        isChecked
+          ? "border-emerald-200/60 bg-emerald-50 dark:border-emerald-500/20 dark:bg-emerald-900/15"
+          : "bg-card border-border/60"
       }`}
     >
-      <div className="flex w-full items-center justify-between">
+      <div className="flex w-full items-center justify-between gap-2">
         <a href={video.videoLink} target="_blank" rel="noopener noreferrer">
-          <img
+          <Image
             src={video.thumbnailUrl}
             alt={video.videoTitle}
-            className="rounded-lg max-w-fit h-[56px]"
+            width={100}
+            height={56}
+            className="h-14 max-w-fit rounded-xl"
           />
         </a>
         <a
           href={video.videoLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-md font-medium flex-grow truncate hover:underline ml-2"
+          className="text-foreground ml-2 grow truncate text-sm font-medium hover:underline"
         >
           {capitalizeFirstLetter(video.videoTitle)}
         </a>
-        <div className="flex items-center gap-2 ml-1">
-          <p className="text-md text-white/60">{formatTime(video.videoTime)}</p>
+        <div className="ml-1 flex shrink-0 items-center gap-2">
+          <p className="text-muted-foreground text-sm">
+            {formatTime(video.videoTime)}
+          </p>
           <Checkbox
             checked={isChecked}
             onCheckedChange={() => handleCheckboxChange(video.index)}

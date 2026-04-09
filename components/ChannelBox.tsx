@@ -17,18 +17,18 @@ const ChannelBox = () => {
           Multiple Channels
         </h2>
         <p>
-          <Balancer className="max-w-xl text-lg leading-8 text-muted-foreground">
+          <Balancer className="text-muted-foreground max-w-xl text-lg leading-8">
             Choose whos best for you
           </Balancer>
         </p>
       </div>
-      <div className="relative isolate overflow-hidden bg-primary-foreground border px-6 text-center rounded-3xl sm:px-16 w-full my-auto flex h-96 justify-around">
-        <div className="hidden md:flex md:flex-col my-auto">
+      <div className="bg-primary-foreground relative isolate my-auto flex h-96 w-full justify-around overflow-hidden rounded-3xl border px-6 text-center sm:px-16">
+        <div className="my-auto hidden md:flex md:flex-col">
           <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
             Multiple Channels
           </h2>
           <p>
-            <Balancer className="mx-auto max-w-xl text-lg leading-8 text-muted-foreground">
+            <Balancer className="text-muted-foreground mx-auto max-w-xl text-lg leading-8">
               Choose whos best for you
             </Balancer>
           </p>
@@ -38,7 +38,7 @@ const ChannelBox = () => {
         </div>
         <svg
           viewBox="0 0 1024 1024"
-          className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
+          className="absolute top-1/2 left-1/2 -z-10 h-256 w-5xl -translate-x-1/2 mask-[radial-gradient(closest-side,white,transparent)]"
           aria-hidden="true"
         >
           <circle

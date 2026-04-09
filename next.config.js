@@ -1,7 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["i.ytimg.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "i.ytimg.com",
+      },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+      },
+    ],
   },
   async headers() {
     return [
@@ -14,10 +23,10 @@ const nextConfig = {
   rewrites: async () => {
     return [
       {
-        source: '/request',
-        destination: '/request/index.html',
+        source: "/request",
+        destination: "/request/index.html",
       },
-    ]
+    ];
   },
   async redirects() {
     return [
@@ -146,7 +155,6 @@ const nextConfig = {
         destination: "/subject/compiler-design",
         permanent: true,
       },
-
     ];
   },
 };
