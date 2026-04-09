@@ -29,7 +29,7 @@ export default function VideoCard({
   checkboxStatus,
   setCheckboxStatus,
 }: TVideoCard) {
-  const isChecked = checkboxStatus[video.index];
+  const isChecked = checkboxStatus[video.index] ?? false;
 
   const handleCheckboxChange = (index: string) => {
     setCheckboxStatus((prevStatus) => ({

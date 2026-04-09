@@ -44,7 +44,11 @@ export default async function RootLayout({
   const { session, hasPremiumAccess } = await getServerPremiumAccess();
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      data-scroll-behavior="smooth"
+    >
       <head>
         <meta property="og:url" content="https://gatecsetracker.vercel.app/" />
         <meta property="og:type" content="website" />

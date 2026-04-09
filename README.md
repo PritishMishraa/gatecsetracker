@@ -1,5 +1,13 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Environment
+
+Copy `.env.example` to `.env.local` and fill in every value before starting the app.
+
+`DODO_PAYMENTS_WEBHOOK_SECRET` is required in all environments. The app now fails fast at startup if webhook processing is not configured, which prevents checkout from being exposed in a deploy that cannot grant premium access.
+
+`BETTER_AUTH_URL` and `NEXT_PUBLIC_APP_URL` must point to the same canonical origin for the current environment so auth redirects and browser auth requests stay on the correct host.
+
 ## Getting Started
 
 First, run the development server:
